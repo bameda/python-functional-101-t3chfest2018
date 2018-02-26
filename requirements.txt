@@ -1,6 +1,7 @@
 jupyter==1.0.0
 nbconvert
 nbstripout
-
+RISE
+e
 # You need:
 #  pandoc textlive-bin textlive-core texlive-most texlive-lang  texlive-langextra

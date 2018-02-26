@@ -1,2 +1,17 @@
+.idea/
+*.iml
+*.iws
+*.eml
+out/
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+bower_components/
+.sass-cache
+css/reveal.min.css
+js/reveal.min.js
+
 .ipynb_checkpoints/
 slides-python-func-101-t3chfest2018.slides.html

@@ -1,0 +1,728 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Programación funcional en Python 101</title>
+    <meta name="description" content="Slides de la presentación de iniciación a la programación funcional en python para el T3chFest 2018.">
+    <meta name="author" content="David Barragán Merino">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+  <body>
+
+		<div class="reveal">
+      <div class="slides">
+        <!-- Cover -->
+        <section>
+          <h1>Programación funcional<br />en Python</h1>
+          <p>
+            <a href="http://kaleidos.net/FFF8E7/">David Barragán Merino</a>
+            /
+            <a href="http://twitter.com/bameda">@bameda</a>
+          </p>
+          <br /><br /><br /><br /><br /><br />
+          <div style="display: flex; align-items: center; flex-direction: row; position:absolute; bottom: 0; right: 3em;">
+            <img src="img/cover/t3chfest.svg"
+                 style="border: 0; background: none; height: 2rem; margin-right: 1.5rem">
+            <img src="img/cover/t3chfy.svg"
+                 style="border: 0; background: none; height: 6rem;">
+          </div>
+        </section>
+
+        <!-- Presentation -->
+        <section style="text-align: left; padding-left: 15rem;" data-background="img/presentation/david-bg.png">
+					<h3>Hola!</h3>
+					<br />
+					<h2>David Barragán Merino</h2>
+					<p>
+						<a href="http://kaleidos.net/FFF8E7/" style="color: #fff8e7">#FFF8E7</a>
+						<img src="img/presentation/kaleidos.svg"
+								 style="border: 0; background: none; height: 4rem; vertical-align: middle;"> Kaleidos.net
+						<br>
+						<a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a>
+						<img src="img/presentation/taiga.svg"
+								 style="border: 0; background: none; height: 4.5rem; vertical-align: middle;">Taiga.io
+					</p>
+					<br />
+					<p>
+						<a href="https://github.com/bameda">bameda</a> en GitHub
+						<br />
+						<a href="https://twitter.com/bameda">@bameda</a> en Twitter
+					</p>
+        </section>
+
+        <!-- Disclaimer -->
+        <section data-background="#121661">
+          <ul style="text-align: left; list-style-type: none;">
+            <li>
+							<h3 class="fragment">
+								<img src="img/disclaimer/expert.svg"
+                	   style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+								No soy un experto
+							</h3>
+						</li>
+            <li>
+							<h3 class="fragment">
+								<img src="img/disclaimer/opinion.svg"
+                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+								Pero tengo opinión
+							</h3>
+						</li>
+            <li>
+							<h3 class="fragment">
+								<img src="img/disclaimer/baby.svg"
+                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+								Es una charla 101 (de iniciación)
+							</h3>
+						</li>
+            <li>
+							<h3 class="fragment">
+								<img src="img/disclaimer/python.svg"
+                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+								Uso Python 3 (<a href="https://pythonclock.org/">Python 2.7 countdown</a>)
+							</h3>
+						</li>
+          </ul>
+        </section>
+
+        <!-- -->
+        <section>
+          <h2>¿Qué es la programación funcional?</h2>
+        </section>
+
+        <!-- -->
+        <section>
+          <h2></h2>
+        </section>
+
+        <!-- Imperative vs Fuctional-->
+        <section>
+          <section>
+            <h2>Programación Imperativa vs Declarativa</h2>
+						<p>Hay que procesar la siguiente entrada (mal formada)</p>
+            <pre><code class="python" data-trim>
+              input = "23+45++++2++5++32++100"
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              input = "23+45++++2++5++32++100"
+
+              res = 0
+              for t in input.split("+"):
+                  if t:
+                    res += int(t)
+
+              print(res)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              ["23", "45", "", "", "", "2", "", "5", "", "32", "", "100"], 0
+              "23", 0
+              "45", 23
+              "2", 68
+              "5", 70
+              "32", 75
+              "100", 107
+              207
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              input = "23+45++++2++5++32++100"
+
+              from functools import reduce
+              from operator import add
+
+              res = reduce(add, map(int, filter(bool, input.split("+"))))
+
+              print(res)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              ["23", "45", "", "", "", "2", "", "5", "", "32", "", "100"]
+              ["23", "45", "2", "5", "32", "100"]
+              [23, 45, 2, 5, 32, 100]
+              207
+            </code></pre>
+          </section>
+        </section>
+
+        <!-- List comprenhension -->
+        <section>
+          <section>
+            <h2>List comprenhension</h2>
+            <div>
+              Calcula las combinaciones del juego piedra-papel-tijera para las que exista un ganador.
+            </div>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              values = ['piedra', 'papel', 'tijera']
+              combs = []
+              for x in values:
+                  for y in values:
+                      if x != y:
+                          combs.append((x, y))
+              print(combs)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              [('piedra', 'papel'), ('piedra', 'tijera'), ('papel', 'piedra'),
+               ('papel', 'tijera'), ('tijera', 'piedra'), ('tijera', 'papel')]
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              values = ['piedra', 'papel', 'tijera']
+              combs = [(x, y) for x in values for y in values if x != y]
+              print(combs)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              [('piedra', 'papel'), ('piedra', 'tijera'), ('papel', 'piedra'),
+               ('papel', 'tijera'), ('tijera', 'piedra'), ('tijera', 'papel')]
+            </code></pre>
+            <p class="fragment">¿Seguro que no puedes hacerlo mejor?</p>
+          </section>
+        </section>
+
+        <!-- Generators -->
+        <section>
+        	<section>
+						<h2>Iteradores y Generadores</h2>
+						<blockquote style="text-align: left;">
+              <strong>iterable:</strong> An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict, file objects, and objects of any classes you define with an <code>__iter__()</code> method or <code>__getitem__</code> (...) When an iterable object is passed as an argument to the built-in function <code>iter()</code>, it returns an iterator for the object. This iterator is good for one pass over the set of values.
+						</blockquote>
+						<blockquote class="fragment" style="text-align: left;">
+            <strong>__iter__:</strong>This method is called when an iterator is required for a container. This method should return a new iterator object that can iterate over all the objects in the container. For mappings, it should iterate over the keys of the container.
+            </blockquote>
+        	</section>
+        	<section>
+						<blockquote style="text-align: left;">
+              <strong>iterator:</strong> An object representing a stream of data. Repeated calls to the iterator’s <code>__next__()</code> method (or passing it to the built-in function <code>next()</code>) return successive items in the stream. When no more data are available a <code>StopIteration</code> exception is raised instead. At this point, the iterator object is exhausted and any further calls to its <code>__next__()</code> method just raise <code>StopIteration</code> again. Iterators are required to have an <code>__iter__()</code> method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted.
+            </blockquote>
+        	</section>
+        	<section>
+            <pre><code class="python" data-trim>
+              l = [1, 2, 3, 4]
+              l.__iter__
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              &lt;method-wrapper '__iter__' of list object at 0x7ff9ec499488&gt;
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              l.__next__
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              ---------------------------------------------------------------------------
+              AttributeError                            Traceback (most recent call last)
+              &lt;ipython-input-21-39daa3570050&gt; in &lt;module&gt;()
+              ----&gt; 1 l.__next__
+
+              AttributeError: 'list' object has no attribute '__next__'
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              li = iter(l)
+              li.__next__
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              &lt;method-wrapper '__next__' of list_iterator object at 0x7ff9ec514240&gt;
+            </code></pre>
+        	</section>
+        	<section>
+            <pre><code class="python" data-trim>
+              class yrange:
+                  def __init__(self, n):
+                      self.i = 0
+                      self.n = n
+
+                  def __iter__(self):
+                      return self
+
+                  def __next__(self):
+                      if self.i &lt; self.n:
+                          i = self.i
+                          self.i += 1
+                          return i
+                      else:
+                          raise StopIteration()
+            </code></pre>
+        	</section>
+        	<section>
+            <pre><code class="python" data-trim>
+              y = yrange(3)
+              print(next(y))
+              print(next(y))
+              print(next(y))
+              print(next(y))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              0
+              1
+              2
+              ---------------------------------------------------------------------------
+              StopIteration                             Traceback (most recent call last)
+              &lt;ipython-input-49-c97cadfde7e4&gt; in &lt;module&gt;()
+                    3 print(next(y))
+                    4 print(next(y))
+              ----&gt; 5 print(next(y))
+
+              &lt;ipython-input-45-79e514da8e3b&gt; in __next__(self)
+                   13             return i
+                   14         else:
+              ---&gt; 15             raise StopIteration()
+
+              StopIteration:
+            </code></pre>
+        	</section>
+        	<section>
+            <pre><code class="python" data-trim>
+              class zrange:
+                  def __init__(self, n):
+                      self.n = n
+
+                  def __iter__(self):
+                      return zrange_iter(self.n)
+            </code></pre>
+            <pre><code class="python" data-trim>
+              class zrange_iter:
+                  def __init__(self, n):
+                      self.i = 0
+                      self.n = n
+
+                  def __iter__(self):
+                      return self
+
+                  def __next__(self):
+                      if self.i &lt; self.n:
+                          i = self.i
+                          self.i += 1
+                          return i
+                      else:
+                          raise StopIteration()
+            </code></pre>
+        	</section>
+        	<section>
+            <pre><code class="python" data-trim>
+              y = yrange(5)
+              print(list(y))
+              print(list(y))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              [0, 1, 2, 3, 4]
+              []
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              z = zrange(5)
+              print(list(z))
+              print(list(z))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              [0, 1, 2, 3, 4]
+              [0, 1, 2, 3, 4]
+            </code></pre>
+        	</section>
+        	<section>
+						<blockquote style="text-align: left;">
+  						<strong>generator</strong> A function which returns a generator iterator. It looks like a normal function except that it contains <code>yield</code> expressions for producing a series of values usable in a for-loop or that can be retrieved one at a time with the <code>next()</code> function.
+						</blockquote>
+						<blockquote style="text-align: left;">
+	  					<strong>generator iterator</strong> An object created by a generator function.
+						</blockquote>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              def my_generator():
+                yield 1
+                yield 2
+                yield 3
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              g = my_generator()
+              print(g)
+              print(next(g))
+              print(next(g))
+              print(next(g))
+              print(next(g))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              &lt;generator object my_generator at 0x7ff9ec48fc50&gt;
+              a
+              b
+              c
+              ---------------------------------------------------------------------------
+              StopIteration                             Traceback (most recent call last)
+              &lt;ipython-input-55-567ce73dea18&gt; in &lt;module&gt;()
+                    4 print(next(g))
+                    5 print(next(g))
+              ----&gt; 6 print(next(g))
+
+              StopIteration:
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              def get_even(stop):
+                  """Return all the even numbers &lt;= stop."""
+
+                  numbers = []
+                  n = 0
+                  while n &lt;= stop:
+                      numbers.append(n)
+                      n += 2
+                  return numbers
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              print(get_even(10))
+
+              [0, 2, 4, 6, 8, 10]
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              print(get_even(1e18))
+
+              ===================================================================
+              | Kernel restarting                                               |
+              |                                                                 |
+              | The kernel appears to have died. It will restart automatically. |
+              ===================================================================
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              def count():
+                  n = 0
+                  while True:
+                      yield n
+                      n +=1
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              counter = count()
+              print(next(counter))
+              print(next(counter))
+              print(next(counter))
+              print(next(counter))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              0
+              1
+              2
+              3
+            </code></pre>
+          </section>
+          <section>
+            <p>Volvamos al ejemplo anterior...</p>
+            <pre><code class="python" data-trim>
+              values = ['piedra', 'papel', 'tijera']
+              combs = ((x, y) for x in values for y in values if x != y)
+              print(combs)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+							&lt;generator object &lt;genexpr&gt; at 0x7ff9ec545468&gt;
+            </code></pre>
+						<div class="fragment">
+            	<p>Usando <code>next()</code> para obtener los valores</p>
+							<pre><code class="python" data-trim>
+								next(combs)
+								('piedra', 'papel')
+
+								next(combs)
+								('piedra', 'tijera')
+							</code></pre>
+						</div>
+          </section>
+          <section>
+            <h3> En resumen:</h3>
+            <ul style="text-align: left;">
+              <li>Un iterable es un objeto capaz de devolver sus miembros uno a uno. Implementa el método <code>__iter__()</code> o <code>__getitem__()</code>.</li>
+              <li>Un iterador es un objeto iterable ya que se devuelve a si mismo que además añade el método <code>__next__()</code>.</li>
+              <li>Un función generadora es una función capaz de devolver valores uno a uno (utilizando <code>yield</code>), devolviendo un generador.</li>
+              <li>Un generador es una clase de iterador generado por una función generadora.</li>
+
+              <li>Los iteradores son de usar y tirar.</li>
+              <li>Los iteradores son perezosos (se calculan cuando se necesita).</li>
+            </ul>
+            <br /><br />
+            <small class="fragment">
+              Si este es tu rollo:
+              <a href="https://www.python.org/dev/peps/pep-0288/" title="PEP 288 -- Generators Attributes and Exceptions">PEP 288</a>
+              , <a href="https://www.python.org/dev/peps/pep-0325/" title="PEP 325 -- (Resource-Release Support for Generators">PEP 325</a>
+              , <a href="https://www.python.org/dev/peps/pep-0342/" title="PEP 342 -- Coroutines via Enhanced Generators">PEP 342</a>
+              y <a href="https://www.python.org/dev/peps/pep-0380/" title="PEP 380 -- Syntax for Delegating to a Subgenerator">PEP 380</a>
+            </small>
+          </section>
+        </section>
+
+        <!-- Lambda Functions -->
+        <section>
+          <section>
+            <h2>Funciones Lambda</h2>
+            <blockquote style="text-align: left;">
+              <strong>lambda:</strong>An anonymous inline function consisting of a <strong>single expression</strong> which is evaluated when the function is called. The syntax to create a lambda function is <code>lambda [arguments]: expression</code>
+            </blockquote>
+            <blockquote class="fragment" style="text-align: left;">
+              <strong>expression</strong>
+  A piece of syntax which can be evaluated to some value. In other words, an expression is an accumulation of expression elements like literals, names, attribute access, operators or function calls which all return a value.
+            </blockquote>
+            </br />
+            <pre class="fragment"><code class="python" data-trim>
+              sum_numbers = lambda x, y: x+y
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              print(sum_numbers)
+              &lt;function &lt;lambda&gt; at 0x7f0aef3d9ea0&gt;
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              sum_numbers(1, 4)
+              5
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              even_or_odd = lambda x: 'even' if x % 2 == 0 else 'odd'
+
+              print('1 is', even_or_odd(1))
+              print('4 is', even_or_odd(4))
+              print('22 is', even_or_odd(22))
+              print('1479 is',even_or_odd(1479))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              1 is odd
+              4 is even
+              22 is even
+              1479 is odd
+            </code></pre>
+          </section>
+        </section>
+
+        <!-- itertools -->
+        <section>
+          <section>
+            <h2>itertools</h2>
+          </section>
+        </section>
+
+        <!-- Higher-order functions: functools -->
+        <section>
+          <section>
+            <h2>Funciones de orden superior</h2>
+            <blockquote style="text-align: left;">
+              In mathematics and computer science, a higher-order function <del>(also functional, functional form or functor)</del> is a function that takes one or more functions as arguments
+              <br />
+              <br />
+              <div style="text-align: right">
+                <small>
+                  <a href="https://en.wikipedia.org/wiki/Higher-order_function#Python">Higher-order function</a>
+                  <br />de la Wikipedia
+                </small>
+              </div>
+            </blockquote>
+            <pre class="fragment"><code class="python" data-trim>
+              def twice(f):
+                  return lambda x: f(f(x))
+
+              plus_three = lambda x: x + 3
+
+              twice_plus_three = twice(plus_three)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              twice_plus_three(10)
+              16
+            </code></pre>
+            <p class="fragment">
+              Python viene con varias funciones de orden superior de serie
+            </p>
+          </section>
+          <section>
+            <dl>
+              <dt>
+                <code>map(function, iterable, ...)</code>
+              </dt>
+              <dd>
+                Return an iterator that applies function to every item of iterable, yielding the results. If additional iterable arguments are passed, function must take that many arguments and is applied to the items from all iterables in parallel. With multiple iterables, the iterator stops when the shortest iterable is exhausted. For cases where the function inputs are already arranged into argument tuples, <code>see itertools.starmap()</code>.
+              </dd>
+            </dl>
+            <pre class="fragment"><code class="python" data-trim>
+              tuple(map(lambda x, y: (x,y), (1, 2, 3, 4), ('a', 'b', 'c', 'd')))
+
+              ((1, 'a'), (2, 'b'), (3, 'c'), (4, 'd'))
+            </code></pre>
+          </section>
+          <section>
+            <dl>
+              <dt>
+                <code>filter(function, iterable)</code>
+              </dt>
+              <dd>
+                Construct an iterator from those elements of iterable for which function returns true. iterable may be either a sequence, a container which supports iteration, or an iterator. If function is None, the identity function is assumed, that is, all elements of iterable that are false are removed.
+                <br /><br />
+                Note that <code>filter(function, iterable)</code> is equivalent to the generator expression <code>(item for item in iterable if function(item))</code> if function is not <code>None</code> and <code>(item for item in iterable if item)</code> if function is <code>None</code>.
+                <br /><br />
+                See <code>itertools.filterfalse()</code> for the complementary function that returns elements of iterable for which function returns false.
+              </dd>
+            </dl>
+            <pre class="fragment"><code class="python" data-trim>
+              tuple(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 15, 17, 32, 1986]))
+
+              (2, 4, 32, 1986)
+            </code></pre>
+          </section>
+          <section>
+            <dl>
+              <dt>
+                <code>sorted(iterable, *, key=None, reverse=False)</code>
+              </dt>
+              <dd>
+                Return a new sorted list from the items in iterable.
+                <br /><br />
+                Has two optional arguments which must be specified as keyword arguments.
+                <br /><br />
+                <code>key</code> specifies a function of one argument that is used to extract a comparison key from each list element: <code>key=str.lower</code>. The default value is None (compare the elements directly).
+                <br /><br />
+                <code>reverse</code> is a boolean value. If set to <code>True</code>, then the list elements are sorted as if each comparison were reversed.
+                <br /><br />
+                The built-in <code>sorted()</code> function is guaranteed to be stable. A sort is stable if it guarantees not to change the relative order of elements that compare equal — this is helpful for sorting in multiple passes (for example, sort by department, then by salary grade).
+              </dd>
+            </dl>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              from collections import namedtuple
+
+              Student = namedtuple('Student', ('name', 'age', 'grade'))
+
+              students = (
+                  Student("María", 21, 'C'),
+                  Student("Pedro", 22, 'B'),
+                  Student("Rosa", age=21, grade='A')
+              )
+
+              sorted(students, key=lambda s: s.age)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              [Student(name='María', age=21, grade='C'),
+               Student(name='Rosa', age=21, grade='A'),
+               Student(name='Pedro', age=22, grade='B')]
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              from operator import attrgetter
+              sorted(students, key=attrgetter('age', 'grade'))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              [Student(name='Rosa', age=21, grade='A'),
+               Student(name='María', age=21, grade='C'),
+               Student(name='Pedro', age=22, grade='B')]
+            </code></pre>
+          </section>
+        </section>
+
+        <!-- functools, clousers and decorators -->
+        <section>
+          <section>
+            <h2>functools</h2>
+          </section>
+          <section>
+            <h2>Clousers and decorators</h2>
+          </section>
+        </section>
+
+        <!-- Aplicación parcial -->
+        <section>
+          <h2></h2>
+        </section>
+
+        <!-- Currificación -->
+        <section>
+          <h2></h2>
+        </section>
+
+        <!-- -->
+        <section>
+          <h2></h2>
+        </section>
+
+        <!-- -->
+        <section>
+          <h2>Bibliografía</h2>
+          <ul style="font-size: .7em;">
+            <li><a href="https://docs.python.org/dev/howto/functional.html">[Doc}</a>Functional Programming HOWTO</li>
+
+            <li><a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">[Video Talk}</a>Kung Fu at Dawn with Itertools (Victor Terrón) [Vídeo]</li>
+            <li><a href="https://github.com/vterron/EuroPython-2016">[Doc Talk}</a>Kung Fu at Dawn with Itertools (Victor Terrón) [Repo]</li>
+            <li><a href="http://www.dabeaz.com/generators/">[Doc Talk}</a>Generator Tricks for Systems Programmers (David M. Beazley)</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0288/">[Doc}</a>PEP 288 -- Generators Attributes and Exceptions</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0325/">[Doc}</a>PEP 325 -- (Resource-Release Support for Generators</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0342/">[Doc}</a>PEP 342 -- Coroutines via Enhanced Generators</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0380/">[Doc}</a>PEP 380 -- Syntax for Delegating to a Subgenerator</li>
+            <li><a href="https://docs.python.org/3.6/library/itertools.html">[Doc]</a>itertools — Functions creating iterators for efficient looping</li>
+
+            <li><a href="https://docs.python.org/3.6/howto/sorting.html#sortinghowto">[Doc]</a>Sorting HOW TO</li>
+            <li><a href="https://docs.python.org/3.6/library/functools.html">[Doc]</a>functools — Higher-order functions and operations on callable objects</li>
+
+            <li><a href="https://docs.python.org/3.6/library/collections.html#module-collections">[Doc]</a>collections — Container datatypes</li>
+            <li><a href="https://docs.python.org/3.6/library/operator.html?highlight=operator">[Doc]</a>operator — Standard operators as functions</li>
+
+            <li><a href="">[]</a></li>
+            <li><a href="">[]</a></li>
+            <li><a href="">[]</a></li>
+            <li><a href="">[]</a></li>
+          </ul>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        // Settings
+       	width: "1920",
+	      height: "1080",
+       	//width: "100%",
+	      //height: "100%",
+	      //margin: 0,
+	      //minScale: 1,
+        //maxScale: 1,
+        // Plugin: elapsed-time-bar
+        allottedTime: 40 * 60 * 1000, // 40 minutes
+        progressBarHeight: 5,
+        barColor: '#005db2',
+        pausedBarColor: '#fff8e7',
+        // Keyboard bindings
+        keyboard: {
+          // pause/resume time when Enter is pressed
+          13: () => {
+            ElapsedTimeBar.isPaused ? ElapsedTimeBar.resume() : ElapsedTimeBar.pause();
+          },
+          // reset timer when 'r' is pressed
+          82: () => {
+            ElapsedTimeBar.reset();
+          }
+        },
+        // Dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/elapsed-time-bar/elapsed-time-bar.js'}
+				]
+			});
+		</script>
+	</body>
+</html>
