@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Programación funcional en Python 101</title>
+		<title>Functional Programming in Python 101</title>
     <meta name="description" content="Slides de la presentación de iniciación a la programación funcional en python para el T3chFest 2018.">
     <meta name="author" content="David Barragán Merino">
 
@@ -29,7 +29,7 @@
       <div class="slides">
         <!-- Cover -->
         <section>
-          <h1>Programación funcional<br />en Python</h1>
+          <h1>Functional Programming<br />in Python</h1>
           <p>
             <a href="http://kaleidos.net/FFF8E7/">David Barragán Merino</a>
             /
@@ -46,23 +46,23 @@
 
         <!-- Presentation -->
         <section style="text-align: left; padding-left: 15rem;" data-background="img/presentation/david-bg.png">
-					<h3>Hola!</h3>
+					<h3>Hi!</h3>
 					<br />
 					<h2>David Barragán Merino</h2>
 					<p>
-						<a href="http://kaleidos.net/FFF8E7/" style="color: #fff8e7">#FFF8E7</a>
+						<a href="http://kaleidos.net/FFF8E7/" style="color: #fff8e7">#FFF8E7</a>&nbsp;at&nbsp;
 						<img src="img/presentation/kaleidos.svg"
-								 style="border: 0; background: none; height: 4rem; vertical-align: middle;"> Kaleidos.net
+								 style="border: 0; background: none; height: 4rem; vertical-align: middle;">&nbsp;Kaleidos.net
 						<br>
-						<a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a>
+						<a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a>&nbsp;at&nbsp;
 						<img src="img/presentation/taiga.svg"
-								 style="border: 0; background: none; height: 4.5rem; vertical-align: middle;">Taiga.io
+								 style="border: 0; background: none; height: 4.5rem; vertical-align: middle;">&nbsp;Taiga.io
 					</p>
 					<br />
 					<p>
-						<a href="https://github.com/bameda">bameda</a> en GitHub
+						<a href="https://github.com/bameda">bameda</a> on GitHub
 						<br />
-						<a href="https://twitter.com/bameda">@bameda</a> en Twitter
+						<a href="https://twitter.com/bameda">@bameda</a> on Twitter
 					</p>
         </section>
 
@@ -73,29 +73,29 @@
 							<h3 class="fragment">
 								<img src="img/disclaimer/expert.svg"
                 	   style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								No soy un experto
+								I am not an expert
 							</h3>
 						</li>
             <li>
 							<h3 class="fragment">
 								<img src="img/disclaimer/opinion.svg"
                      style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								Pero tengo opinión
+								But I have an opinion
 							</h3>
 						</li>
             <li>
 							<h3 class="fragment">
 								<img src="img/disclaimer/baby.svg"
                      style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								Es una charla 101 (de iniciación)
+								It's a 101 talk
 							</h3>
 						</li>
             <li>
 							<h3 class="fragment">
 								<img src="img/disclaimer/python.svg"
                      style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								Uso Python 3 (<a href="https://pythonclock.org/">Python 2.7 countdown</a>)
-							</h3>
+								I use Python 3 ALWAYS (<a href="https://pythonclock.org/">Python 2.7 countdown</a>)
+              </h3>
 						</li>
           </ul>
         </section>
@@ -165,8 +165,13 @@
         <section>
           <section>
             <h2>List comprenhension</h2>
-            <div>
-              Calcula las combinaciones del juego piedra-papel-tijera para las que exista un ganador.
+            <div class="fragment"
+                 style="display: flex; flex-direction: row; justify-content: center; align-content: center; align-items: center">
+              <div style="width: 32rem; padding-right: 2rem">
+                Calculate the combinations of the rock-paper-scissors game for which there is a winner.
+              </div>
+              <img src="img/list-comp/rock-paper-scissors.svg"
+                   style="border: 0; background: none; height: 32rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
             </div>
           </section>
           <section>
@@ -194,14 +199,14 @@
               [('piedra', 'papel'), ('piedra', 'tijera'), ('papel', 'piedra'),
                ('papel', 'tijera'), ('tijera', 'piedra'), ('tijera', 'papel')]
             </code></pre>
-            <p class="fragment">¿Seguro que no puedes hacerlo mejor?</p>
+            <p class="fragment">Are you sure you can not do it better?</p>
           </section>
         </section>
 
-        <!-- Generators -->
+        <!-- Iterators & Generators -->
         <section>
         	<section>
-						<h2>Iteradores y Generadores</h2>
+						<h2>Iterators & Generators</h2>
 						<blockquote style="text-align: left;">
               <strong>iterable:</strong> An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict, file objects, and objects of any classes you define with an <code>__iter__()</code> method or <code>__getitem__</code> (...) When an iterable object is passed as an argument to the built-in function <code>iter()</code>, it returns an iterator for the object. This iterator is good for one pass over the set of values.
 						</blockquote>
@@ -447,15 +452,15 @@
             <ul style="text-align: left;">
               <li>Un iterable es un objeto capaz de devolver sus miembros uno a uno. Implementa el método <code>__iter__()</code> o <code>__getitem__()</code>.</li>
               <li>Un iterador es un objeto iterable ya que se devuelve a si mismo que además añade el método <code>__next__()</code>.</li>
+              <li>Los iteradores son perezosos (se calculan cuando se necesita).</li>
+              <li>Los iteradores son de usar y tirar.</li>
               <li>Un función generadora es una función capaz de devolver valores uno a uno (utilizando <code>yield</code>), devolviendo un generador.</li>
               <li>Un generador es una clase de iterador generado por una función generadora.</li>
-
-              <li>Los iteradores son de usar y tirar.</li>
-              <li>Los iteradores son perezosos (se calculan cuando se necesita).</li>
+              <li>Una expresión generadora es como una list comprenhension pero con las ventagas de los generadores.</li>
             </ul>
             <br /><br />
             <small class="fragment">
-              Si este es tu rollo:
+              If you still want more:
               <a href="https://www.python.org/dev/peps/pep-0288/" title="PEP 288 -- Generators Attributes and Exceptions">PEP 288</a>
               , <a href="https://www.python.org/dev/peps/pep-0325/" title="PEP 325 -- (Resource-Release Support for Generators">PEP 325</a>
               , <a href="https://www.python.org/dev/peps/pep-0342/" title="PEP 342 -- Coroutines via Enhanced Generators">PEP 342</a>
@@ -490,12 +495,12 @@
           </section>
           <section>
             <pre><code class="python" data-trim>
-              even_or_odd = lambda x: 'even' if x % 2 == 0 else 'odd'
+              even_or_odd = lambda x: "even" if x % 2 == 0 else "odd"
 
-              print('1 is', even_or_odd(1))
-              print('4 is', even_or_odd(4))
-              print('22 is', even_or_odd(22))
-              print('1479 is',even_or_odd(1479))
+              print(f"1 is {even_or_odd(1)}")
+              print(f"4 is {even_or_odd(4)}")
+              print(f"22 is {even_or_odd(22)}")
+              print(f"1479 is {even_or_odd(1479)}")
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
               1 is odd
@@ -510,21 +515,157 @@
         <section>
           <section>
             <h2>itertools</h2>
+            <p>This module implements a number of iterator building blocks inspired by constructs from APL, Haskell, and SML. Each has been recast in a form suitable for Python.</p>
+            <p>The module standardizes a core set of fast, memory efficient tools that are useful by themselves or in combination. Together, they form an “iterator algebra” making it possible to construct specialized tools succinctly and efficiently in pure Python.</p>
+            <dl class="fragment">
+              <dt>Infinite iterators:</dt> <dd><code>count()</code>, <code>cycle()</code>, <code>repeat()</code></dd>
+              <dt>Iterators terminating on the shortest input sequence:</dt><dd><code>accumulate()</code>, <code>chain()</code>, <code>chain.from_iterable()</code>, <code>compress()</code>, <code>dropwhile()</code>, <code>filterfalse()</code>, <code>groupby()</code>, <code>islice()</code>, <code>starmap()</code>, <code>takewhile()</code>, <code>tee()</code>, <code>zip_longest()</code></dd>
+              <dt>Combinatoric iterators:</dt><dd><code>product()</code>, <code>permutations()</code>, <code>combinations()</code>, <code>combinations_with_replacement()</code></dd>
+            </dl>
+            <p class="fragment">
+              See <a href="https://docs.python.org/3.6/library/itertools.html">itertools doc</a>.
+            </p>
+          </section>
+          <section>
+            <h4>Ex.: A (rudimentary) compression algorithm</h4>
+            <p>
+              Let's implement a very basic string compression function using the counts of repeated characters.<br /> For example:
+            </p>
+            <pre><code class="python" data-trim>
+              compress("sssdddddxxaaaaaa")
+              "s3d5x2a6"
+            </code></pre>
+          </section>
+          <section>
+            <p>...without itertools</p>
+            <pre><code class="python" data-trim>
+              def compress(word):
+                  result = []
+                  current = word[0]
+                  counter = 1
+
+                  for letter in word[1:]:
+                      if letter == current:
+                          # We're still in the same group
+                          counter += 1
+                      else:
+                          # We need to start a new group
+                          result += [current, str(counter)]
+                          current = letter # start a new group
+                          counter = 1
+                  result += [current, str(counter)]
+                  return "".join(result)
+
+
+              compress("sssdddddxxaaaaaa")
+              "s3d5x2a6"
+            </code></pre>
+          </section>
+          <section>
+            <p>...with itertools</p>
+            <dl class="fragment">
+              <dt>
+                <code>itertools.groupby(iterable, key=None)</code>
+              </dt>
+              <dd>
+								Make an iterator that returns consecutive keys and groups from the iterable. The key is a function computing a key value for each element. If not specified or is <code>None</code>, key defaults to an identity function and returns the element unchanged. Generally, the iterable needs to already be sorted on the same key function.
+								<br /><br />
+                The operation of groupby() is similar to the uniq filter in Unix. It generates a break or new group every time the value of the key function changes (which is why it is usually necessary to have sorted the data using the same key function). That behavior differs from SQL’s GROUP BY which aggregates common elements regardless of their input order.
+              </dd>
+            </dl>
+						<br /><br />
+            <pre class="fragment"><code class="python" data-trim>
+              def compress(word):
+                  return ''.join(f"{key}{len(list(group))}"
+														     for key, group in itertools.groupby(word))
+
+
+              compress("sssdddddxxaaaaaa")
+              "s3d5x2a6"
+           </code></pre>
+          </section>
+          <section>
+            <h4>Ex.: Rolling dices</h4>
+            <p>If we roll four six-sided dices, what are their posible outcomes?</p>
+						<div class="fragment">
+							<p>...without itertools</p>
+							<pre><code class="python" data-trim>
+                def product(first, second, third, fourth):
+                    """A generator of the Cartesian product of four iterables."""
+                    for w in first:
+                        for x in second:
+                            for y in third:
+                                for z in fourth:
+                                    yield (w, x, y, z)
+
+
+                dice = range(1, 7)
+                tuple(product(dice, dice, dice, dice))
+							</code></pre>
+						</div>
+          </section>
+          <section>
+            <p>with itertools...</p>
+            <dl class="fragment">
+              <dt>
+                <code>itertools.product(*iterables, repeat=1)</code>
+              </dt>
+              <dd>
+                Cartesian product of input iterables.
+								</br/ ><br />
+                (...) To compute the product of an iterable with itself, specify the number of repetitions with the optional <code>repeat</code> keyword argument. For example, <code>product(A, repeat=4)</code> means the same as <code>product(A, A, A, A)</code>.
+              </dd>
+            </dl>
+						<br /><br />
+            <pre class="fragment"><code class="python" data-trim>
+							import itertools
+							dice = range(1, 7)
+							tuple(itertools.product(dice, repeat=4))
+            </code></pre>
+						<p class="fragment">...and in how many outcomes they add up to 6?</p>
+            <pre class="fragment"><code class="python" data-trim>
+              tuple(
+                  filter(lambda x: sum(x) == 6,
+                         itertools.product(dice, repeat=4))
+              )
+            </code></pre>
+          </section>
+          <section>
+						<p class="fragment">...but in the real life?</p>
+            <pre class="fragment"><code class="python" data-trim>
+              import collections, itertools
+
+              class Coord(collections.namedtuple("Coord", "x y")):
+                  def neighbours(self):
+                      """Return a generator of the eight neighbours of a coordinate."""
+                      cls = type(self)
+                      for x_delta, y_delta in itertools.product([-1, 0, 1], repeat=2):
+                          if x_delta or y_delta:
+                              yield cls(self.x + x_delta, self.y + y_delta)
+
+
+              tuple(Coord(12, 4).neighbours())
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              (Coord(x=11, y=3), Coord(x=11, y=4), Coord(x=11, y=5),
+               Coord(x=12, y=3), Coord(x=12, y=5),
+               Coord(x=13, y=3), Coord(x=13, y=4), Coord(x=13, y=5))
+            </code></pre>
           </section>
         </section>
 
         <!-- Higher-order functions: functools -->
         <section>
           <section>
-            <h2>Funciones de orden superior</h2>
+            <h2>Higher-order functions</h2>
             <blockquote style="text-align: left;">
-              In mathematics and computer science, a higher-order function <del>(also functional, functional form or functor)</del> is a function that takes one or more functions as arguments
+              In mathematics and computer science, a higher-order function <del>(also functional, functional form or functor)</del> is a function that takes one or more functions as arguments or return a function.
               <br />
               <br />
               <div style="text-align: right">
                 <small>
                   <a href="https://en.wikipedia.org/wiki/Higher-order_function#Python">Higher-order function</a>
-                  <br />de la Wikipedia
+                  <br />from Wikipedia
                 </small>
               </div>
             </blockquote>
@@ -541,7 +682,7 @@
               16
             </code></pre>
             <p class="fragment">
-              Python viene con varias funciones de orden superior de serie
+              Python comes with some higher-order functions
             </p>
           </section>
           <section>
@@ -553,6 +694,7 @@
                 Return an iterator that applies function to every item of iterable, yielding the results. If additional iterable arguments are passed, function must take that many arguments and is applied to the items from all iterables in parallel. With multiple iterables, the iterator stops when the shortest iterable is exhausted. For cases where the function inputs are already arranged into argument tuples, <code>see itertools.starmap()</code>.
               </dd>
             </dl>
+						</br/ ><br />
             <pre class="fragment"><code class="python" data-trim>
               tuple(map(lambda x, y: (x,y), (1, 2, 3, 4), ('a', 'b', 'c', 'd')))
 
@@ -572,6 +714,7 @@
                 See <code>itertools.filterfalse()</code> for the complementary function that returns elements of iterable for which function returns false.
               </dd>
             </dl>
+						</br/ ><br />
             <pre class="fragment"><code class="python" data-trim>
               tuple(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 15, 17, 32, 1986]))
 
@@ -631,9 +774,25 @@
         <section>
           <section>
             <h2>functools</h2>
+						<p>The functools module is for higher-order functions: functions that act on or return other functions. In general, any callable object can be treated as a function for the purposes of this module.</p>
+            <p class="fragment">
+              See <a href="https://docs.python.org/3.6/library/functools.html">functools doc</a>.
+            </p>
           </section>
+            <dl>
+              <dt>
+                <code>functools.reduce(function, iterable[, initializer])</code>
+              </dt>
+              <dd>
+								Apply function of two arguments cumulatively to the items of sequence, from left to right, so as to reduce the sequence to a single value. For example, <code>reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])</code> calculates <code>((((1+2)+3)+4)+5)</code>. The left argument, x, is the accumulated value and the right argument, y, is the update value from the sequence. If the optional initializer is present, it is placed before the items of the sequence in the calculation, and serves as a default when the sequence is empty. If initializer is not given and sequence contains only one item, the first item is returned.
+              </dd>
+            </dl>
+            <pre class="fragment"><code class="python" data-trim>
+						  mport functools
+              functools.reduce(lambda x, y: x * y, range(1, 11))
+            </code></pre>
           <section>
-            <h2>Clousers and decorators</h2>
+            <h2>Clousures and decorators</h2>
           </section>
         </section>
 
@@ -656,6 +815,7 @@
         <section>
           <h2>Bibliografía</h2>
           <ul style="font-size: .7em;">
+            <li><a href="https://docs.python.org/3/glossary.html">[Doc]</a>Python Glossary</li>
             <li><a href="https://docs.python.org/dev/howto/functional.html">[Doc}</a>Functional Programming HOWTO</li>
 
             <li><a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">[Video Talk}</a>Kung Fu at Dawn with Itertools (Victor Terrón) [Vídeo]</li>
