@@ -113,14 +113,16 @@
         <!-- Imperative vs Fuctional-->
         <section>
           <section>
-            <h2>Programación Imperativa vs Declarativa</h2>
-						<p>Hay que procesar la siguiente entrada (mal formada)</p>
+            <h2>Imperative vs Declarative</h2>
+            <h3>(HOW vs WHAT?)</h3>
+						<p>Calculate partially invalid string with operation.</p>
             <pre><code class="python" data-trim>
               input = "23+45++++2++5++32++100"
             </code></pre>
           </section>
           <section>
-            <pre><code class="python" data-trim>
+            <p>Actions that change state from initial state to resultI =&gt; Imperative style =&gt; HOW?</p>
+            <pre class="fragment"><code class="python" data-trim>
               input = "23+45++++2++5++32++100"
 
               res = 0
@@ -142,7 +144,8 @@
             </code></pre>
           </section>
           <section>
-            <pre><code class="python" data-trim>
+            <p>Apply rules, restrictions, transformation (and compositions) =&gt; Declarative style =&gt; WHAT</p>
+            <pre class="fragment"><code class="python" data-trim>
               input = "23+45++++2++5++32++100"
 
               from functools import reduce
@@ -176,7 +179,7 @@
           </section>
           <section>
             <pre><code class="python" data-trim>
-              values = ['piedra', 'papel', 'tijera']
+              values = ['rock', 'paper', 'scissors']
               combs = []
               for x in values:
                   for y in values:
@@ -185,19 +188,19 @@
               print(combs)
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              [('piedra', 'papel'), ('piedra', 'tijera'), ('papel', 'piedra'),
-               ('papel', 'tijera'), ('tijera', 'piedra'), ('tijera', 'papel')]
+              [('rock', 'paper'), ('rock', 'scissors'), ('paper', 'rock'),
+               ('paper', 'scissors'), ('scissors', 'rock'), ('scissors', 'paper')]
             </code></pre>
           </section>
           <section>
             <pre><code class="python" data-trim>
-              values = ['piedra', 'papel', 'tijera']
+              values = ['rock', 'paper', 'scissors']
               combs = [(x, y) for x in values for y in values if x != y]
               print(combs)
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              [('piedra', 'papel'), ('piedra', 'tijera'), ('papel', 'piedra'),
-               ('papel', 'tijera'), ('tijera', 'piedra'), ('tijera', 'papel')]
+              [('rock', 'paper'), ('rock', 'scissors'), ('paper', 'rock'),
+               ('paper', 'scissors'), ('scissors', 'rock'), ('scissors', 'paper')]
             </code></pre>
             <p class="fragment">Are you sure you can not do it better?</p>
           </section>
@@ -427,44 +430,41 @@
             </code></pre>
           </section>
           <section>
-            <p>Volvamos al ejemplo anterior...</p>
+            <p>Let's go back to the previous example...</p>
             <pre><code class="python" data-trim>
-              values = ['piedra', 'papel', 'tijera']
+              values = ['rock', 'paper', 'tijer ']
               combs = ((x, y) for x in values for y in values if x != y)
               print(combs)
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
 							&lt;generator object &lt;genexpr&gt; at 0x7ff9ec545468&gt;
             </code></pre>
-						<div class="fragment">
-            	<p>Usando <code>next()</code> para obtener los valores</p>
-							<pre><code class="python" data-trim>
-								next(combs)
-								('piedra', 'papel')
+						<pre class="fragment"><code class="python" data-trim>
+							next(combs)
+							('rock', 'paper')
 
-								next(combs)
-								('piedra', 'tijera')
-							</code></pre>
-						</div>
+							next(combs)
+							('rock', 'scissors')
+						</code></pre>
           </section>
           <section>
-            <h3> En resumen:</h3>
+            <h3>In summary:</h3>
             <ul style="text-align: left;">
-              <li>Un iterable es un objeto capaz de devolver sus miembros uno a uno. Implementa el método <code>__iter__()</code> o <code>__getitem__()</code>.</li>
-              <li>Un iterador es un objeto iterable ya que se devuelve a si mismo que además añade el método <code>__next__()</code>.</li>
-              <li>Los iteradores son perezosos (se calculan cuando se necesita).</li>
-              <li>Los iteradores son de usar y tirar.</li>
-              <li>Un función generadora es una función capaz de devolver valores uno a uno (utilizando <code>yield</code>), devolviendo un generador.</li>
-              <li>Un generador es una clase de iterador generado por una función generadora.</li>
-              <li>Una expresión generadora es como una list comprenhension pero con las ventagas de los generadores.</li>
+              <li>An iterable is an object capable of returning its members one by one. Implement the <code>__ite __()</code> <span style="color: gray;">or <code>__getitem__()</code> method</span>.</li>
+              <li>An iterator is an iterable object since it is returned to itself that also adds the method <code>__next__()</code>.</li>
+              <li>Iterators are lazy (calculated when they are needed).</li>
+              <li>Iterators are for a single use.</li>
+              <li>A generator function is a function capable of returning values one by one (using <code>yield</code>), returning a generator.</li>
+              <li>A generator is a kind of iterator generated by a generator function.</li>
+              <li>A generator expression is like a list comprenhension but with the benefits of the generators.</li>
             </ul>
             <br /><br />
             <small class="fragment">
-              If you still want more:
-              <a href="https://www.python.org/dev/peps/pep-0288/" title="PEP 288 -- Generators Attributes and Exceptions">PEP 288</a>
-              , <a href="https://www.python.org/dev/peps/pep-0325/" title="PEP 325 -- (Resource-Release Support for Generators">PEP 325</a>
+              If you need mutch more, read <a href="http://www.dabeaz.com/generators/">"Generator Tricks for Systems Programmers"</a> by David M. Beazley
+              <br/ >and some Python Enhancement Proposals <a href="https://www.python.org/dev/peps/pep-0288/" title="PEP 288 -- Generators Attributes and Exceptions">PEP 288</a>
+              , <a href="https://www.python.org/dev/peps/pep-0325/" title="PEP 325 -- Resource-Release Support for Generators">PEP 325</a>
               , <a href="https://www.python.org/dev/peps/pep-0342/" title="PEP 342 -- Coroutines via Enhanced Generators">PEP 342</a>
-              y <a href="https://www.python.org/dev/peps/pep-0380/" title="PEP 380 -- Syntax for Delegating to a Subgenerator">PEP 380</a>
+              and <a href="https://www.python.org/dev/peps/pep-0380/" title="PEP 380 -- Syntax for Delegating to a Subgenerator">PEP 380</a>.
             </small>
           </section>
         </section>
@@ -472,7 +472,7 @@
         <!-- Lambda Functions -->
         <section>
           <section>
-            <h2>Funciones Lambda</h2>
+            <h2>Lambda functions</h2>
             <blockquote style="text-align: left;">
               <strong>lambda:</strong>An anonymous inline function consisting of a <strong>single expression</strong> which is evaluated when the function is called. The syntax to create a lambda function is <code>lambda [arguments]: expression</code>
             </blockquote>
@@ -605,7 +605,7 @@
 						</div>
           </section>
           <section>
-            <p>with itertools...</p>
+            <p>...with itertools</p>
             <dl class="fragment">
               <dt>
                 <code>itertools.product(*iterables, repeat=1)</code>
@@ -651,6 +651,11 @@
                Coord(x=12, y=3), Coord(x=12, y=5),
                Coord(x=13, y=3), Coord(x=13, y=4), Coord(x=13, y=5))
             </code></pre>
+            <small class="fragment">
+              To know more about irtertools see:
+              </br />
+              Víctor Terrón (@pyctor) - Kung Fu at Dawn with Itertools  (<a href="https://www.youtube.com/watch?v=iCrOGS1QlB8">Video EN</a> / <a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">Video ES</a> / <a href="https://github.com/vterron/EuroPython-2016">Repo</a>) [CC BY-SA 2.0].
+            </small>
           </section>
         </section>
 
@@ -661,7 +666,6 @@
             <blockquote style="text-align: left;">
               In mathematics and computer science, a higher-order function <del>(also functional, functional form or functor)</del> is a function that takes one or more functions as arguments or return a function.
               <br />
-              <br />
               <div style="text-align: right">
                 <small>
                   <a href="https://en.wikipedia.org/wiki/Higher-order_function#Python">Higher-order function</a>
@@ -669,6 +673,7 @@
                 </small>
               </div>
             </blockquote>
+            <br />
             <pre class="fragment"><code class="python" data-trim>
               def twice(f):
                   return lambda x: f(f(x))
@@ -779,6 +784,7 @@
               See <a href="https://docs.python.org/3.6/library/functools.html">functools doc</a>.
             </p>
           </section>
+          <section>
             <dl>
               <dt>
                 <code>functools.reduce(function, iterable[, initializer])</code>
@@ -788,11 +794,94 @@
               </dd>
             </dl>
             <pre class="fragment"><code class="python" data-trim>
-						  mport functools
+						  import functools
               functools.reduce(lambda x, y: x * y, range(1, 11))
             </code></pre>
+          </section>
           <section>
-            <h2>Clousures and decorators</h2>
+            <dl>
+              <dt>
+                <code>@functools.lru_cache(maxsize=128, typed=False)</code>
+              </dt>
+              <dd>
+                Decorator to wrap a function with a memoizing callable that saves up to the maxsize most recent calls. It can save time when an expensive or I/O bound function is periodically called with the same arguments. (...) If <code>maxsize</code> is set to <code>None</code>, the LRU feature is disabled and the cache can grow without bound. The LRU feature performs best when maxsize is a power-of-two. If <code>typed</code> is set to <code>true</code>, function arguments of different types will be cached separately.
+              </dd>
+            </dl>
+            <pre class="fragment"><code class="python" data-trim>
+              import functools
+
+              @functools.lru_cache()
+              def get_heavy_query(param):
+                  print(f"Accessing to the db (param={param}")
+                  return param * 3
+
+              print(get_heavy_query(1))
+              print(get_heavy_query(2))
+              print(get_heavy_query(1))
+              print(get_heavy_query(2))
+              print(get_heavy_query(3))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              Accessing to the db (param=1
+              3
+              Accessing to the db (param=2
+              6
+              3
+              6
+              Accessing to the db (param=3
+              9
+            </code></pre>
+
+          </section>
+          <section>
+            <h3>Clousures and decorators</h3>
+            <br />
+            <pre class="fragment"><code class="python" data-trim>
+              class Multiplier:
+                  def __init__(self, n):
+                      self.n = n
+
+                  def multiplier(self, x):
+                      return self.n * x
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              times3 = Multiplier(3)
+              times5 = Multiplier(5)
+
+              print(times3.multiplier(9))
+              27
+              print(times5.multiplier(3))
+              15
+              print(times5.multiplier(times3.multiplier(2)))
+              30
+            </code></pre>
+          </section>
+          <section>
+            <pre class="fragment"><code class="python" data-trim>
+              def make_multiplier_of(n):
+                  def multiplier(x):
+                      return x * n
+                  return multiplier
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              times3 = make_multiplier_of(3)
+              times5 = make_multiplier_of(5)
+
+              print(times3(9))
+              27
+              print(times5(3))
+              15
+              print(times5(times3(2)))
+              30
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              print(make_multiplier_of.__closure__)
+              None
+              print(times3.__closure__[0].cell_contents)
+              3
+            </code></pre>
           </section>
         </section>
 
