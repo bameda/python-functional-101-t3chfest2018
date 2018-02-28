@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>Functional Programming in Python 101</title>
-    <meta name="description" content="Slides de la presentación de iniciación a la programación funcional en python para el T3chFest 2018.">
+    <meta name="description" content="Slides for my talk about Funcional Programming in Python for T3chFest 2018.">
     <meta name="author" content="David Barragán Merino">
 
 		<link rel="stylesheet" href="css/reveal.css">
@@ -102,7 +102,7 @@
 
         <!-- -->
         <section>
-          <h2>¿Qué es la programación funcional?</h2>
+          <h2>¿What is funcional programming?</h2>
         </section>
 
         <!-- -->
@@ -427,6 +427,11 @@
               1
               2
               3
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+							for num in count():
+                  print(num)
+							# zZzZzZzZz...
             </code></pre>
           </section>
           <section>
@@ -831,13 +836,12 @@
               Accessing to the db (param=3
               9
             </code></pre>
-
           </section>
           <section>
             <h3>Clousures and decorators</h3>
             <br />
             <pre class="fragment"><code class="python" data-trim>
-              class Multiplier:
+              class MultiplierMaker:
                   def __init__(self, n):
                       self.n = n
 
@@ -845,8 +849,8 @@
                       return self.n * x
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              times3 = Multiplier(3)
-              times5 = Multiplier(5)
+              times3 = MultiplierMaker(3)
+              times5 = MultiplierMaker(5)
 
               print(times3.multiplier(9))
               27
@@ -857,6 +861,26 @@
             </code></pre>
           </section>
           <section>
+            <p>
+              A <strong>closure</strong> is a function evaluated in an environment that contains
+              <br />
+              one or more variables dependent on another environment.
+            </p>
+            <small>
+              TLDR.
+              <blockquote style="text-align: left;">
+                 In programming languages, a <strong>closure</strong> (also lexical closure or function closure) is a technique for implementing lexically scoped name binding in a language with first-class functions. Operationally, a closure is a record storing a function together with an environment. The environment is a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created. A closure—unlike a plain function—allows the function to access those captured variables through the closure's copies of their values or references, even when the function is invoked outside their scope.
+                <br />
+                <div style="text-align: right">
+                  <small>
+                    <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure (computer programming)</a>
+                    <br />from Wikipedia
+                  </small>
+                </div>
+              </blockquote>
+            </small>
+            <br />
+            <br />
             <pre class="fragment"><code class="python" data-trim>
               def make_multiplier_of(n):
                   def multiplier(x):
@@ -883,26 +907,318 @@
               3
             </code></pre>
           </section>
+          <section>
+            <h3>Decorators</h3>
+            <p>
+							 Decorators are “wrappers”, which means that they let you execute code before and after the function<br />
+							 they decorate without modifying the function itself.
+						</p>
+						<p>
+							A decorator is a function that takes in another function and returns another function.
+						</p>
+            <small><p><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">The best exaplanation about decorators in Python is here</a></p></small>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              def bold(fn):
+                  def wrapped():
+                      return f"**{fn()}**"
+                  return wrapped
+
+              def italic(fn):
+                  def wrapped():
+                      return f"_{fn()}_"
+                  return wrapped
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              def hello():
+                  return "hello world"
+
+              print(bold(italic(hello))())
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+						  **_hello world_**
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              @bold
+              @italic
+              def hello():
+									"""Print hello message"""
+                  return "hello world"
+
+              print(hello())
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+						  **_hello world_**
+            </code></pre>
+          </section>
+          <section>
+            <pre class="fragment"><code class="python" data-trim>
+							@bold
+							def hello():
+									"""Print hello message"""
+									return "hello world"
+
+							print(hello.__name__)
+							print(hello.__doc__)
+            </code></pre>
+
+            <pre class="fragment"><code class="python" data-trim>
+            	wrapped
+	            None
+            </code></pre>
+          </section>
+          <section>
+            <pre class="fragment"><code class="python" data-trim>
+							import functools
+
+              def bold(fn):
+									@functools.wraps(fn)
+                  def wrapped():
+                      return f"*{fn()}*"
+                  return wrapped
+
+							@bold
+							def hello():
+									"""Print hello message"""
+									return "hello world"
+
+							print(hello.__name__)
+							print(hello.__doc__)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+							hello
+							Print hello message
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              from functools import wraps
+
+              def md_tag(tag):
+                  def factory(func):
+                      @wraps(func)
+                          def decorator(msg):
+                              return f"{tag}{func(msg)}{tag}"
+                          return decorator
+                  return factory
+
+              @md_tag("**")
+              @md_tag("_")
+              def message(msg):
+                  return msg
+
+              print(message("Hello T3chFest"))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+							**_Hello T3chFest_**
+            </code></pre>
+          </section>
         </section>
 
         <!-- Aplicación parcial -->
         <section>
-          <h2></h2>
+					<section>
+						<h2>Partial function application</h2>
+						<pre><code>
+							papply: (((a × b) → c) × a) → (b → c) = λ(f, x). λy. f (x, y)
+						</code></pre>
+						<blockquote class="fragment" style="text-align: left;">
+							The process of fixing a number of arguments to a function, producing another function of smaller arity.
+							<br />
+							<div style="text-align: right">
+								<small>
+                  <a href="https://en.wikipedia.org/wiki/Partial_application">Partial application</a>
+									<br />from Wikipedia
+								</small>
+							</div>
+						</blockquote>
+        	</section>
+	        <section>
+            <pre class="fragment"><code class="python" data-trim>
+							def log(level, msg):
+                  print(f"[{level}]: {msg}")
+
+              def debug(msg):
+                  log("debug", msg)
+
+              log("debug", "Start doing something")
+              log("debug", "Continue with something else")
+              debug("Finished. Procastinate")
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+							[debug]: Start doing something
+              [debug]: Continue with something else
+              [debug]: Finished. Procastinate
+            </code></pre>
+  	      </section>
+  	      <section>
+            <pre><code class="python" data-trim>
+							from functools import partial
+
+							def log(level, msg):
+									print(f"[{level}]: {msg}")
+
+							info = partial(log, "info")
+							debug = partial(log, "debug")
+							warn = partial(log, "warning")
+							error = partial(log, "error")
+
+							debug("Start doing something")
+							debug("Continue with something else")
+							debug("Procastinate")
+							info("End")
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+							[debug]: Start doing something
+							[debug]: Continue with something else
+							[debug]: Procastinate
+							[info]: End
+            </code></pre>
+  	      </section>
         </section>
 
         <!-- Currificación -->
         <section>
-          <h2></h2>
+					<section>
+						<h2>Currying</h2>
+						<pre><code>
+              curry: ((a × b) → c) → (a → (b → c)) = λf. λx. λy. f (x, y)
+						</code></pre>
+						<blockquote class="fragment" style="text-align: left;">
+							 The technique of transforming a function that takes multiple arguments in such a way that it can be called as a chain of functions each with a single argument.
+							<br />
+							<div style="text-align: right">
+								<small>
+                  <a href="https://en.wikipedia.org/wiki/Partial_application">Partial application</a>
+									<br />from Wikipedia
+								</small>
+							</div>
+						</blockquote>
+						<br /><br />
+            <pre class="fragment"><code class="python" data-trim>
+              def curry(fn):
+                  def curried(*args, **kwargs):
+                      return curry(partial(fn, *args, **kwargs)) if args or kwargs else fn()
+                  return curried
+            </code></pre>
+					</section>
+					<section>
+            <pre class="fragment"><code class="python" data-trim>
+              @curry
+              def add(a, b, c, d, e, f, g):
+                  return a + b + c + d + e + f + g
+
+              add12 = add(1)(2)
+              add1234 = add12(3)(4)
+              add1234567 = add1234(5)(6)(7)
+              add1234321 = add1234(3)(2)(1)
+
+              print(add1234567())
+              print(add1234321())
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+					    28
+              16
+            </code></pre>
+					</section>
+					<section>
+            <pre class="fragment"><code class="python" data-trim>
+              @curry
+              def accumulator(*args):
+                  return sum(args)
+
+              acc = accumulator(10)
+              acc = acc(12)(15)(22)
+              acc = acc(1)(1)
+
+              print(acc())
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+					    61
+            </code></pre>
+					</section>
+
+					<section>
+            <pre><code class="python" data-trim>
+              currencies =  {
+                  'GBP': 0.879700,
+                  'JPY': 131.259995,
+                  'EUR': 1.0,
+                  'USD': 1.223200
+              }
+
+              @curry
+              def exchange(from_currency, to_currency, amount):
+                  return amount * currencies[to_currency] / currencies[from_currency]
+
+              from_eur = exchange('EUR')
+              from_gbp = exchange('GBP')
+
+              from_eur_to_gbp = from_eur('GBP')
+              from_eur_to_usd = from_eur('USD')
+              from_gbp_to_eur = from_gbp('EUR')
+
+              print(from_eur_to_gbp(100.0)())
+              print(from_gbp_to_eur(87.97)())
+              print(from_eur_to_usd(10.0)())
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              87.97
+              100.0
+              12.232000000000001
+            </code></pre>
+        	</section>
         </section>
 
-        <!-- -->
+        <!-- Recursivida  -->
         <section>
-          <h2></h2>
-        </section>
+        	<section>
+						<h2>TCO recursion</h2>
+						<br />
+						<big>Nope</big>
+						<br />
+						<blockquote class="fragment" style="text-align: left;">
+							I recently posted an entry in my Python History blog on the origins of Python's functional features. A side remark about not supporting tail recursion elimination (TRE) immediately sparked several comments about what a pity it is that Python doesn't do this, including links to recent blog entries by others trying to "prove" that TRE can be added to Python easily. So let me defend my position (which is that I don't want TRE in the language). If you want a short answer, it's simply unpythonic. Here's the long answer: (...)
+							<br />
+							<div style="text-align: right">
+								<small>
+									<a href="https://neopythonic.blogspot.com.es/2009/04/tail-recursion-elimination.html">Tail Recursion elimination</a>
+									<br />Posted by Guido van Rossum on April 22, 2009
+								</small>
+							</div>
+						</blockquote>
+					</section>
+					<section>
+						<pre><code class="python" data-trim>
+							import sys
+							sys.getrecursionlimit()
+						</code></pre>
+						<pre><code class="python" data-trim>
+							3000
+						</code></pre>
 
-        <!-- -->
+						<pre class="fragment"><code class="python" data-trim>
+							def fib(n, sum):
+									return sum if not n else fib(n-1, sum+n)
+
+							fib(3500, 0)
+						</code></pre>
+						<pre class="fragment"><code class="python" data-trim>
+							&#x3C;ipython-input-117-6cb630841faa&#x3E; in fib(n, sum)
+												 1 def fib(n, sum):
+							----&#x3E; 2     return sum if not n else fib(n-1, sum+n)
+												 3
+												 4 fib(3500, 0)
+
+							RecursionError: maximum recursion depth exceeded
+						</code></pre>
+					</section>
+				</section>
+
+        <!-- Bibliography -->
         <section>
-          <h2>Bibliografía</h2>
+          <h2>Bibliography</h2>
           <ul style="font-size: .7em;">
             <li><a href="https://docs.python.org/3/glossary.html">[Doc]</a>Python Glossary</li>
             <li><a href="https://docs.python.org/dev/howto/functional.html">[Doc}</a>Functional Programming HOWTO</li>
@@ -915,15 +1231,13 @@
             <li><a href="https://www.python.org/3.6/peps/pep-0342/">[Doc}</a>PEP 342 -- Coroutines via Enhanced Generators</li>
             <li><a href="https://www.python.org/3.6/peps/pep-0380/">[Doc}</a>PEP 380 -- Syntax for Delegating to a Subgenerator</li>
             <li><a href="https://docs.python.org/3.6/library/itertools.html">[Doc]</a>itertools — Functions creating iterators for efficient looping</li>
-
+						<li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do/231855#231855">[Doc]</a>Understand what yield does (by e-satis)</li>
             <li><a href="https://docs.python.org/3.6/howto/sorting.html#sortinghowto">[Doc]</a>Sorting HOW TO</li>
             <li><a href="https://docs.python.org/3.6/library/functools.html">[Doc]</a>functools — Higher-order functions and operations on callable objects</li>
-
             <li><a href="https://docs.python.org/3.6/library/collections.html#module-collections">[Doc]</a>collections — Container datatypes</li>
             <li><a href="https://docs.python.org/3.6/library/operator.html?highlight=operator">[Doc]</a>operator — Standard operators as functions</li>
-
-            <li><a href="">[]</a></li>
-            <li><a href="">[]</a></li>
+            <li><a href="https://gist.github.com/DmitrySoshnikov/700292">[Gist]</a>Understanding Python's closures (by DmitrySoshnikov)</li>
+            <li><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">[Doc]</a>Decorator Basics (by e-satis)</li>
             <li><a href="">[]</a></li>
             <li><a href="">[]</a></li>
           </ul>
