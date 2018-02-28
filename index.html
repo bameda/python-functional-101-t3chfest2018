@@ -1,31 +1,31 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Functional Programming in Python 101</title>
+    <title>Functional Programming in Python 101</title>
     <meta name="description" content="Slides for my talk about Funcional Programming in Python for T3chFest 2018.">
     <meta name="author" content="David Barragán Merino">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/custom.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/custom.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
   <body>
 
-		<div class="reveal">
+    <div class="reveal">
       <div class="slides">
         <!-- Cover -->
         <section>
@@ -46,76 +46,110 @@
 
         <!-- Presentation -->
         <section style="text-align: left; padding-left: 15rem;" data-background="img/presentation/david-bg.png">
-					<h3>Hi!</h3>
-					<br />
-					<h2>David Barragán Merino</h2>
-					<p>
-						<a href="http://kaleidos.net/FFF8E7/" style="color: #fff8e7">#FFF8E7</a>&nbsp;at&nbsp;
-						<img src="img/presentation/kaleidos.svg"
-								 style="border: 0; background: none; height: 4rem; vertical-align: middle;">&nbsp;Kaleidos.net
-						<br>
-						<a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a>&nbsp;at&nbsp;
-						<img src="img/presentation/taiga.svg"
-								 style="border: 0; background: none; height: 4.5rem; vertical-align: middle;">&nbsp;Taiga.io
-					</p>
-					<br />
-					<p>
-						<a href="https://github.com/bameda">bameda</a> on GitHub
-						<br />
-						<a href="https://twitter.com/bameda">@bameda</a> on Twitter
-					</p>
+          <h3>Hi!</h3>
+          <br />
+          <h2>David Barragán Merino</h2>
+          <p>
+            <a href="http://kaleidos.net/FFF8E7/" style="color: #fff8e7">#FFF8E7</a>&nbsp;at&nbsp;
+            <img src="img/presentation/kaleidos.svg"
+                 style="border: 0; background: none; height: 4rem; vertical-align: middle;">&nbsp;Kaleidos.net
+            <br>
+            <a href="https://tree.taiga.io/humans.txt">Grouchy Smurf</a>&nbsp;at&nbsp;
+            <img src="img/presentation/taiga.svg"
+                 style="border: 0; background: none; height: 4.5rem; vertical-align: middle;">&nbsp;Taiga.io
+          </p>
+          <br />
+          <p>
+            <a href="https://github.com/bameda">bameda</a> on GitHub
+            <br />
+            <a href="https://twitter.com/bameda">@bameda</a> on Twitter
+          </p>
         </section>
 
         <!-- Disclaimer -->
         <section data-background="#121661">
           <ul style="text-align: left; list-style-type: none;">
             <li>
-							<h3 class="fragment">
-								<img src="img/disclaimer/expert.svg"
-                	   style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								I am not an expert
-							</h3>
-						</li>
-            <li>
-							<h3 class="fragment">
-								<img src="img/disclaimer/opinion.svg"
+              <h3 class="fragment">
+                <img src="img/disclaimer/expert.svg"
                      style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								But I have an opinion
-							</h3>
-						</li>
-            <li>
-							<h3 class="fragment">
-								<img src="img/disclaimer/baby.svg"
-                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								It's a 101 talk
-							</h3>
-						</li>
-            <li>
-							<h3 class="fragment">
-								<img src="img/disclaimer/python.svg"
-                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
-								I use Python 3 ALWAYS (<a href="https://pythonclock.org/">Python 2.7 countdown</a>)
+                I am not an expert
               </h3>
-						</li>
+            </li>
+            <li>
+              <h3 class="fragment">
+                <img src="img/disclaimer/opinion.svg"
+                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+                But I have an opinion
+              </h3>
+            </li>
+            <li>
+              <h3 class="fragment">
+                <img src="img/disclaimer/baby.svg"
+                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+                It's a 101 talk
+              </h3>
+            </li>
+            <li>
+              <h3 class="fragment">
+                <img src="img/disclaimer/python.svg"
+                     style="border: 0; background: none; height: 6rem; vertical-align: middle; box-shadow: none;" />
+                I use Python 3 ALWAYS (<a href="https://pythonclock.org/">Python 2.7 countdown</a>)
+              </h3>
+            </li>
           </ul>
         </section>
 
         <!-- -->
         <section>
-          <h2>¿What is funcional programming?</h2>
-        </section>
-
-        <!-- -->
-        <section>
-          <h2></h2>
-        </section>
-
-        <!-- Imperative vs Fuctional-->
-        <section>
           <section>
-            <h2>Imperative vs Declarative</h2>
+						<h3>Learning Curves (for different programming languages)</h3>
+						<small><a href="https://news.ycombinator.com/item?id=8802454">from HackerNews</a> published on Dec 27 2014</small>
+						<br />
+            <img src="img/intro/php.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/java.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/cpp.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/python.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/javascript.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/lisp.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/haskell.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+					<section>
+						<h2>¿What is funcional programming?</h2>
+							<blockquote style="text-align: left;">
+								In computer science, functional programming is a programming paradigma style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. <strong>It is a declarative programming paradigm</strong>, which means programming is done with expressions or declarations instead of statements. (...) can make it <strong>much easier to understand and predict the behavior of a program</strong>, which is one of the key motivations for the development of functional programming.
+								<br /><br />
+								<div style="text-align: right">
+									<small>
+										<a href="https://en.wikipedia.org/wiki/Functional_programming">Functional programming</a>
+										<br />from Wikipedia
+									</small>
+								</div>
+							</blockquote>
+					</section>
+          <section>
+            <h2>Imperative vs Declarative (Functional)</h2>
             <h3>(HOW vs WHAT?)</h3>
-						<p>Calculate partially invalid string with operation.</p>
+            <p>Calculate partially invalid string with operation.</p>
             <pre><code class="python" data-trim>
               input = "23+45++++2++5++32++100"
             </code></pre>
@@ -161,6 +195,36 @@
               [23, 45, 2, 5, 32, 100]
               207
             </code></pre>
+          </section>
+          <section>
+            <h2>What FP means?</h2>
+						<br />
+						<ul class="fragment">
+							<li><strong>No mutable data</strong>, and no (uncontrolled) side effect</li>
+  						<li><strong>No</strong> (implicit/hidden) <strong>state</strong> FP do not eliminate state, it just make it visible and explicit (at least when programmers want it to be)</li>
+							<li><strong>Function as ﬁrst-class citizen</strong>, like strings or numbers, and you can operate with them (higher order func, composition...)</li>
+							<li><strong>Functions are pure</strong> functions in the mathematical sense: same output for the same inputs</li>
+							<li><strong>Lazy evaluation</strong></li>
+							<li><strong>Recursion (with TCO)</strong></li>
+							<li><strong>Iterators</strong>, <strong>sequences</strong>, <strong>pattern matching</strong>, <strong>monads</strong>....</li>
+						</ul>
+          </section>
+          <section>
+						<h2>Why do we want to be functional?</h2>
+						<ul class="fragment">
+							<li><strong>Cleaner code</strong>: we don't have to follow the change of state to comprehend what a function, a, method, a class, a whole project works.</li>
+							<li><strong>Referential transparency</strong>: Expressions can be replaced by its values. If we call a function with the same parameters, we know for sure the output will be the same.<ul>
+              	<li><strong>Memoization</strong>: cache</li>
+								<li><strong>Parallelization</strong>: functions calls are independent, no sync needed =&gt; concurrence simpler)</li>
+								<li><strong>Better modularization</strong>: easy to plug/unpplug</li>
+								<li><strong>Easy of test</strong></li>
+								<li><strong>Ease of debugging</strong></li>
+							</ul></li>
+						</ul>
+          </section>
+          <section>
+						<h4>Python is a multi paradigm programming language so</h4>
+						<h2>What does Python offer<br />to make our code more functional?</h2>
           </section>
         </section>
 
@@ -208,21 +272,50 @@
 
         <!-- Iterators & Generators -->
         <section>
-        	<section>
-						<h2>Iterators & Generators</h2>
-						<blockquote style="text-align: left;">
+          <section>
+            <h2>Iterators & Generators</h2>
+            <blockquote style="text-align: left;">
               <strong>iterable:</strong> An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict, file objects, and objects of any classes you define with an <code>__iter__()</code> method or <code>__getitem__</code> (...) When an iterable object is passed as an argument to the built-in function <code>iter()</code>, it returns an iterator for the object. This iterator is good for one pass over the set of values.
-						</blockquote>
-						<blockquote class="fragment" style="text-align: left;">
+            </blockquote>
+            <blockquote class="fragment" style="text-align: left;">
             <strong>__iter__:</strong>This method is called when an iterator is required for a container. This method should return a new iterator object that can iterate over all the objects in the container. For mappings, it should iterate over the keys of the container.
             </blockquote>
-        	</section>
-        	<section>
-						<blockquote style="text-align: left;">
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              for n in [1, 2, 3]:
+                  print (n)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              1
+              2
+              3
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              for l in "abc":
+                  print (l)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              a
+              b
+              c
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              file = open("to_pdf.sh", "r")
+              for line in file:
+                  print(line)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              #!/bin/bash
+              node node_modules/decktape/decktape.js --no-sandbox reveal "http://localhost:8000" slides.pdf
+            </code></pre>
+          </section>
+          <section>
+            <blockquote style="text-align: left;">
               <strong>iterator:</strong> An object representing a stream of data. Repeated calls to the iterator’s <code>__next__()</code> method (or passing it to the built-in function <code>next()</code>) return successive items in the stream. When no more data are available a <code>StopIteration</code> exception is raised instead. At this point, the iterator object is exhausted and any further calls to its <code>__next__()</code> method just raise <code>StopIteration</code> again. Iterators are required to have an <code>__iter__()</code> method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted.
             </blockquote>
-        	</section>
-        	<section>
+          </section>
+          <section>
             <pre><code class="python" data-trim>
               l = [1, 2, 3, 4]
               l.__iter__
@@ -248,8 +341,8 @@
             <pre class="fragment"><code class="python" data-trim>
               &lt;method-wrapper '__next__' of list_iterator object at 0x7ff9ec514240&gt;
             </code></pre>
-        	</section>
-        	<section>
+          </section>
+          <section>
             <pre><code class="python" data-trim>
               class yrange:
                   def __init__(self, n):
@@ -267,8 +360,8 @@
                       else:
                           raise StopIteration()
             </code></pre>
-        	</section>
-        	<section>
+          </section>
+          <section>
             <pre><code class="python" data-trim>
               y = yrange(3)
               print(next(y))
@@ -294,61 +387,66 @@
 
               StopIteration:
             </code></pre>
-        	</section>
-        	<section>
+          </section>
+          <section>
             <pre><code class="python" data-trim>
+              for n in yrange(3):
+                print(n)
+              0
+              1
+              2
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              def my_for(iterable):
+                  it = iter(iterable)
+                  while True:
+                      try:
+                          print(next(it))
+                      except StopIteration:
+                          break
+
+              my_for(yrange(3))
+              0
+              1
+              2
+            </code></pre>
+          </section>
+          <section>
+            <p>Iterator is good for one pass over the set of values.</p>
+            <pre class="fragment"><code class="python" data-trim>
               class zrange:
                   def __init__(self, n):
                       self.n = n
 
                   def __iter__(self):
-                      return zrange_iter(self.n)
-            </code></pre>
-            <pre><code class="python" data-trim>
-              class zrange_iter:
-                  def __init__(self, n):
-                      self.i = 0
-                      self.n = n
-
-                  def __iter__(self):
-                      return self
-
-                  def __next__(self):
-                      if self.i &lt; self.n:
-                          i = self.i
-                          self.i += 1
-                          return i
-                      else:
-                          raise StopIteration()
-            </code></pre>
-        	</section>
-        	<section>
-            <pre><code class="python" data-trim>
-              y = yrange(5)
-              print(list(y))
-              print(list(y))
+                      return yrange(self.n)
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              [0, 1, 2, 3, 4]
-              []
+              y = yrange(5)
+              print(tuple(y))
+              print(tuple(y))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              (0, 1, 2, 3, 4)
+              ()
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
               z = zrange(5)
-              print(list(z))
-              print(list(z))
+              print(tuple(z))
+              print(tuple(z))
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              [0, 1, 2, 3, 4]
-              [0, 1, 2, 3, 4]
+              (0, 1, 2, 3, 4)
+              (0, 1, 2, 3, 4)
             </code></pre>
-        	</section>
-        	<section>
-						<blockquote style="text-align: left;">
-  						<strong>generator</strong> A function which returns a generator iterator. It looks like a normal function except that it contains <code>yield</code> expressions for producing a series of values usable in a for-loop or that can be retrieved one at a time with the <code>next()</code> function.
-						</blockquote>
-						<blockquote style="text-align: left;">
-	  					<strong>generator iterator</strong> An object created by a generator function.
-						</blockquote>
+          </section>
+          <section>
+            <blockquote style="text-align: left;">
+              <strong>generator</strong> A function which returns a generator iterator. It looks like a normal function except that it contains <code>yield</code> expressions for producing a series of values usable in a for-loop or that can be retrieved one at a time with the <code>next()</code> function.
+            </blockquote>
+            <blockquote style="text-align: left;">
+              <strong>generator iterator</strong> An object created by a generator function.
+            </blockquote>
           </section>
           <section>
             <pre><code class="python" data-trim>
@@ -382,23 +480,23 @@
           </section>
           <section>
             <pre><code class="python" data-trim>
-              def get_even(stop):
-                  """Return all the even numbers &lt;= stop."""
+              def count(stop):
+                  """Return all numbers &lt;= stop."""
 
                   numbers = []
                   n = 0
                   while n &lt;= stop:
                       numbers.append(n)
-                      n += 2
+                      n += 1
                   return numbers
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              print(get_even(10))
+              print(count(10))
 
-              [0, 2, 4, 6, 8, 10]
+              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              print(get_even(1e18))
+              print(count(1e18))
 
               ===================================================================
               | Kernel restarting                                               |
@@ -429,9 +527,10 @@
               3
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-							for num in count():
+              for num in count():
                   print(num)
-							# zZzZzZzZz...
+
+              # zZzZzZzZz...
             </code></pre>
           </section>
           <section>
@@ -442,15 +541,15 @@
               print(combs)
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-							&lt;generator object &lt;genexpr&gt; at 0x7ff9ec545468&gt;
+              &lt;generator object &lt;genexpr&gt; at 0x7ff9ec545468&gt;
             </code></pre>
-						<pre class="fragment"><code class="python" data-trim>
-							next(combs)
-							('rock', 'paper')
+            <pre class="fragment"><code class="python" data-trim>
+              next(combs)
+              ('rock', 'paper')
 
-							next(combs)
-							('rock', 'scissors')
-						</code></pre>
+              next(combs)
+              ('rock', 'scissors')
+            </code></pre>
           </section>
           <section>
             <h3>In summary:</h3>
@@ -479,11 +578,10 @@
           <section>
             <h2>Lambda functions</h2>
             <blockquote style="text-align: left;">
-              <strong>lambda:</strong>An anonymous inline function consisting of a <strong>single expression</strong> which is evaluated when the function is called. The syntax to create a lambda function is <code>lambda [arguments]: expression</code>
+              <strong>lambda:</strong> An anonymous inline function consisting of a <strong>single expression</strong> which is evaluated when the function is called. The syntax to create a lambda function is <code>lambda [arguments]: expression</code>
             </blockquote>
             <blockquote class="fragment" style="text-align: left;">
-              <strong>expression</strong>
-  A piece of syntax which can be evaluated to some value. In other words, an expression is an accumulation of expression elements like literals, names, attribute access, operators or function calls which all return a value.
+              <strong>expression: </strong> A piece of syntax which can be evaluated to some value. In other words, an expression is an accumulation of expression elements like literals, names, attribute access, operators or function calls which all return a value.
             </blockquote>
             </br />
             <pre class="fragment"><code class="python" data-trim>
@@ -573,16 +671,16 @@
                 <code>itertools.groupby(iterable, key=None)</code>
               </dt>
               <dd>
-								Make an iterator that returns consecutive keys and groups from the iterable. The key is a function computing a key value for each element. If not specified or is <code>None</code>, key defaults to an identity function and returns the element unchanged. Generally, the iterable needs to already be sorted on the same key function.
-								<br /><br />
+                Make an iterator that returns consecutive keys and groups from the iterable. The key is a function computing a key value for each element. If not specified or is <code>None</code>, key defaults to an identity function and returns the element unchanged. Generally, the iterable needs to already be sorted on the same key function.
+                <br /><br />
                 The operation of groupby() is similar to the uniq filter in Unix. It generates a break or new group every time the value of the key function changes (which is why it is usually necessary to have sorted the data using the same key function). That behavior differs from SQL’s GROUP BY which aggregates common elements regardless of their input order.
               </dd>
             </dl>
-						<br /><br />
+            <br /><br />
             <pre class="fragment"><code class="python" data-trim>
               def compress(word):
-                  return ''.join(f"{key}{len(list(group))}"
-														     for key, group in itertools.groupby(word))
+                  return ''.join(f"{key}{len(tuple(group))}"
+                                 for key, group in itertools.groupby(word))
 
 
               compress("sssdddddxxaaaaaa")
@@ -592,9 +690,9 @@
           <section>
             <h4>Ex.: Rolling dices</h4>
             <p>If we roll four six-sided dices, what are their posible outcomes?</p>
-						<div class="fragment">
-							<p>...without itertools</p>
-							<pre><code class="python" data-trim>
+            <div class="fragment">
+              <p>...without itertools</p>
+              <pre><code class="python" data-trim>
                 def product(first, second, third, fourth):
                     """A generator of the Cartesian product of four iterables."""
                     for w in first:
@@ -605,9 +703,10 @@
 
 
                 dice = range(1, 7)
-                tuple(product(dice, dice, dice, dice))
-							</code></pre>
-						</div>
+                len(tuple(product(dice, dice, dice, dice)))
+                1296
+              </code></pre>
+            </div>
           </section>
           <section>
             <p>...with itertools</p>
@@ -617,26 +716,29 @@
               </dt>
               <dd>
                 Cartesian product of input iterables.
-								</br/ ><br />
+                </br/ ><br />
                 (...) To compute the product of an iterable with itself, specify the number of repetitions with the optional <code>repeat</code> keyword argument. For example, <code>product(A, repeat=4)</code> means the same as <code>product(A, A, A, A)</code>.
               </dd>
             </dl>
-						<br /><br />
+            <br /><br />
             <pre class="fragment"><code class="python" data-trim>
-							import itertools
-							dice = range(1, 7)
-							tuple(itertools.product(dice, repeat=4))
+              import itertools
+              dice = range(1, 7)
+              len(tuple(itertools.product(dice, repeat=4)))
+              1296
             </code></pre>
-						<p class="fragment">...and in how many outcomes they add up to 6?</p>
+            <p class="fragment">...and in how many outcomes they add up to 6?</p>
             <pre class="fragment"><code class="python" data-trim>
-              tuple(
-                  filter(lambda x: sum(x) == 6,
-                         itertools.product(dice, repeat=4))
-              )
+              tuple(filter(lambda x: sum(x) == 6,
+                           itertools.product(dice, repeat=4)))
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              ((1, 1, 1, 3), (1, 1, 2, 2), (1, 1, 3, 1), (1, 2, 1, 2), (1, 2, 2, 1),
+               (1, 3, 1, 1), (2, 1, 1, 2), (2, 1, 2, 1), (2, 2, 1, 1), (3, 1, 1, 1))
             </code></pre>
           </section>
           <section>
-						<p class="fragment">...but in the real life?</p>
+            <p>...but in the real life?</p>
             <pre class="fragment"><code class="python" data-trim>
               import collections, itertools
 
@@ -649,18 +751,18 @@
                               yield cls(self.x + x_delta, self.y + y_delta)
 
 
-              tuple(Coord(12, 4).neighbours())
+              coord = Coord(12, 4)
+              tuple(coord.neighbours())
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
               (Coord(x=11, y=3), Coord(x=11, y=4), Coord(x=11, y=5),
                Coord(x=12, y=3), Coord(x=12, y=5),
                Coord(x=13, y=3), Coord(x=13, y=4), Coord(x=13, y=5))
             </code></pre>
-            <small class="fragment">
-              To know more about irtertools see:
-              </br />
-              Víctor Terrón (@pyctor) - Kung Fu at Dawn with Itertools  (<a href="https://www.youtube.com/watch?v=iCrOGS1QlB8">Video EN</a> / <a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">Video ES</a> / <a href="https://github.com/vterron/EuroPython-2016">Repo</a>) [CC BY-SA 2.0].
-            </small>
+            <p class="fragment">
+              To know more about irtertools see "Kung Fu at Dawn with Itertools" by Víctor Terrón (@pyctor)
+              <br ><a href="https://www.youtube.com/watch?v=iCrOGS1QlB8">Video EN</a> / <a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">Video ES</a> / <a href="https://github.com/vterron/EuroPython-2016">Repo</a> [CC BY-SA 2.0]
+            </p>
           </section>
         </section>
 
@@ -673,7 +775,7 @@
               <br />
               <div style="text-align: right">
                 <small>
-                  <a href="https://en.wikipedia.org/wiki/Higher-order_function#Python">Higher-order function</a>
+                  <a href="https://en.wikipedia.org/wiki/Higher-order_function">Higher-order function</a>
                   <br />from Wikipedia
                 </small>
               </div>
@@ -704,7 +806,7 @@
                 Return an iterator that applies function to every item of iterable, yielding the results. If additional iterable arguments are passed, function must take that many arguments and is applied to the items from all iterables in parallel. With multiple iterables, the iterator stops when the shortest iterable is exhausted. For cases where the function inputs are already arranged into argument tuples, <code>see itertools.starmap()</code>.
               </dd>
             </dl>
-						</br/ ><br />
+            </br/ ><br />
             <pre class="fragment"><code class="python" data-trim>
               tuple(map(lambda x, y: (x,y), (1, 2, 3, 4), ('a', 'b', 'c', 'd')))
 
@@ -724,7 +826,7 @@
                 See <code>itertools.filterfalse()</code> for the complementary function that returns elements of iterable for which function returns false.
               </dd>
             </dl>
-						</br/ ><br />
+            </br/ ><br />
             <pre class="fragment"><code class="python" data-trim>
               tuple(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 15, 17, 32, 1986]))
 
@@ -780,11 +882,11 @@
           </section>
         </section>
 
-        <!-- functools, clousers and decorators -->
+        <!-- functools -->
         <section>
           <section>
             <h2>functools</h2>
-						<p>The functools module is for higher-order functions: functions that act on or return other functions. In general, any callable object can be treated as a function for the purposes of this module.</p>
+            <p>The functools module is for higher-order functions: functions that act on or return other functions. In general, any callable object can be treated as a function for the purposes of this module.</p>
             <p class="fragment">
               See <a href="https://docs.python.org/3.6/library/functools.html">functools doc</a>.
             </p>
@@ -795,11 +897,11 @@
                 <code>functools.reduce(function, iterable[, initializer])</code>
               </dt>
               <dd>
-								Apply function of two arguments cumulatively to the items of sequence, from left to right, so as to reduce the sequence to a single value. For example, <code>reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])</code> calculates <code>((((1+2)+3)+4)+5)</code>. The left argument, x, is the accumulated value and the right argument, y, is the update value from the sequence. If the optional initializer is present, it is placed before the items of the sequence in the calculation, and serves as a default when the sequence is empty. If initializer is not given and sequence contains only one item, the first item is returned.
+                Apply function of two arguments cumulatively to the items of sequence, from left to right, so as to reduce the sequence to a single value. For example, <code>reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])</code> calculates <code>((((1+2)+3)+4)+5)</code>. The left argument, x, is the accumulated value and the right argument, y, is the update value from the sequence. If the optional initializer is present, it is placed before the items of the sequence in the calculation, and serves as a default when the sequence is empty. If initializer is not given and sequence contains only one item, the first item is returned.
               </dd>
             </dl>
             <pre class="fragment"><code class="python" data-trim>
-						  import functools
+              import functools
               functools.reduce(lambda x, y: x * y, range(1, 11))
             </code></pre>
           </section>
@@ -837,8 +939,10 @@
               9
             </code></pre>
           </section>
+        </section>
+        <section>
           <section>
-            <h3>Clousures and decorators</h3>
+            <h2>Clousures and decorators</h2>
             <br />
             <pre class="fragment"><code class="python" data-trim>
               class MultiplierMaker:
@@ -879,17 +983,15 @@
                 </div>
               </blockquote>
             </small>
-            <br />
-            <br />
-            <pre class="fragment"><code class="python" data-trim>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
               def make_multiplier_of(n):
                   def multiplier(x):
                       return x * n
                   return multiplier
             </code></pre>
-          </section>
-          <section>
-            <pre><code class="python" data-trim>
+            <pre class="fragment"><code class="python" data-trim>
               times3 = make_multiplier_of(3)
               times5 = make_multiplier_of(5)
 
@@ -908,15 +1010,16 @@
             </code></pre>
           </section>
           <section>
-            <h3>Decorators</h3>
             <p>
-							 Decorators are “wrappers”, which means that they let you execute code before and after the function<br />
-							 they decorate without modifying the function itself.
-						</p>
-						<p>
-							A decorator is a function that takes in another function and returns another function.
-						</p>
-            <small><p><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">The best exaplanation about decorators in Python is here</a></p></small>
+               <strong>Decorators</strong> are “wrappers”, which means that they let you execute code before<br />
+               and after the function they decorate without modifying the function itself.
+            </p>
+            <p>
+              A decorator is a function that takes in another function and returns another function.
+            </p>
+            <p class="fragment">
+              The best exaplanation about decorators in Python is <a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">here</a>
+            </p>
           </section>
           <section>
             <pre><code class="python" data-trim>
@@ -933,62 +1036,57 @@
             <pre class="fragment"><code class="python" data-trim>
               def hello():
                   return "hello world"
-
-              print(bold(italic(hello))())
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-						  **_hello world_**
+              print(bold(italic(hello))())
+              **_hello world_**
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
               @bold
               @italic
               def hello():
-									"""Print hello message"""
                   return "hello world"
-
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
               print(hello())
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-						  **_hello world_**
+              **_hello world_**
             </code></pre>
           </section>
           <section>
+            <p>There is a small problem with decorated functions and their metadata</p>
             <pre class="fragment"><code class="python" data-trim>
-							@bold
-							def hello():
-									"""Print hello message"""
-									return "hello world"
-
-							print(hello.__name__)
-							print(hello.__doc__)
+              @bold
+              def hello():
+                  """Print hello message"""
+                  return "hello world"
             </code></pre>
-
             <pre class="fragment"><code class="python" data-trim>
-            	wrapped
-	            None
+              print(hello.__name__)
+              wrapped
+              print(hello.__doc__)
+              None
             </code></pre>
           </section>
           <section>
-            <pre class="fragment"><code class="python" data-trim>
-							import functools
+            <pre><code class="python" data-trim>
+            import functools
 
-              def bold(fn):
-									@functools.wraps(fn)
-                  def wrapped():
-                      return f"*{fn()}*"
-                  return wrapped
+            def bold(fn):
+                @functools.wraps(fn)
+                def wrapped():
+                    return f"*{fn()}*"
+                return wrapped
 
-							@bold
-							def hello():
-									"""Print hello message"""
-									return "hello world"
-
-							print(hello.__name__)
-							print(hello.__doc__)
+            @bold
+            def hello():
+                """Print hello message"""
+                return "hello world"
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-							hello
-							Print hello message
+              print(hello.__name__)
+              hello
+              print(hello.__doc__)
+              Print hello message
             </code></pre>
           </section>
           <section>
@@ -998,45 +1096,52 @@
               def md_tag(tag):
                   def factory(func):
                       @wraps(func)
-                          def decorator(msg):
-                              return f"{tag}{func(msg)}{tag}"
-                          return decorator
+                      def decorator(msg):
+                          return f"{tag}{func(msg)}{tag}"
+                      return decorator
                   return factory
 
               @md_tag("**")
               @md_tag("_")
               def message(msg):
+                  """Return a text message"""
                   return msg
 
-              print(message("Hello T3chFest"))
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-							**_Hello T3chFest_**
+              print(message("Hello T3chFest"))
+              **_Hello T3chFest_**
+
+              print(message.__name__)
+              message
+
+              print(message.__doc__)
+              Return a text message
             </code></pre>
           </section>
         </section>
 
         <!-- Aplicación parcial -->
         <section>
-					<section>
-						<h2>Partial function application</h2>
-						<pre><code>
-							papply: (((a × b) → c) × a) → (b → c) = λ(f, x). λy. f (x, y)
-						</code></pre>
-						<blockquote class="fragment" style="text-align: left;">
-							The process of fixing a number of arguments to a function, producing another function of smaller arity.
-							<br />
-							<div style="text-align: right">
-								<small>
+          <section>
+            <h2>Partial function application</h2>
+            <pre><code>
+              papply: (((a × b) → c) × a) → (b → c) = λ(f, x). λy. f (x, y)
+            </code></pre>
+            <blockquote class="fragment" style="text-align: left;">
+              The process of fixing a number of arguments to a function, producing another function of smaller arity.
+              <br />
+              <div style="text-align: right">
+                <small>
                   <a href="https://en.wikipedia.org/wiki/Partial_application">Partial application</a>
-									<br />from Wikipedia
-								</small>
-							</div>
-						</blockquote>
-        	</section>
-	        <section>
-            <pre class="fragment"><code class="python" data-trim>
-							def log(level, msg):
+                  <br />from Wikipedia
+                </small>
+              </div>
+            </blockquote>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              def log(level, msg):
                   print(f"[{level}]: {msg}")
 
               def debug(msg):
@@ -1047,63 +1152,105 @@
               debug("Finished. Procastinate")
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-							[debug]: Start doing something
+              [debug]: Start doing something
               [debug]: Continue with something else
               [debug]: Finished. Procastinate
             </code></pre>
-  	      </section>
-  	      <section>
+          </section>
+          <section>
             <pre><code class="python" data-trim>
-							from functools import partial
+              from functools import partial
 
-							def log(level, msg):
-									print(f"[{level}]: {msg}")
+              def log(level, msg):
+                  print(f"[{level}]: {msg}")
 
-							info = partial(log, "info")
-							debug = partial(log, "debug")
-							warn = partial(log, "warning")
-							error = partial(log, "error")
+              debug = partial(log, "debug")
 
-							debug("Start doing something")
-							debug("Continue with something else")
-							debug("Procastinate")
-							info("End")
+              debug("Start doing something")
+              debug("Continue with something else")
+              debug("Procastinate")
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-							[debug]: Start doing something
-							[debug]: Continue with something else
-							[debug]: Procastinate
-							[info]: End
+              [debug]: Start doing something
+              [debug]: Continue with something else
+              [debug]: Procastinate
+              [info]: End
             </code></pre>
-  	      </section>
+            <pre class="fragment"><code class="python" data-trim>
+              info = partial(log, "info")
+              warn = partial(log, "warning")
+              error = partial(log, "error")
+            </code></pre>
+          </section>
+          <section>
+              <img src="img/partial-apply/thor.jpg"
+                   style="border: 0; background: none; height: 32rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              JsonResponse = lambda content, *args, **kwargs: HttpResponse(
+                  json.dumps(content),
+                  content_type="application/json",
+                  *args,
+                  **kwargs
+              )
+
+              JsonOKResponse  = partial(JsonResponse, status=200)
+              JsonBadRequestResponse = partial(JsonResponse, status=400)
+              JsonCreatedResponse = partial(JsonResponse, status=201)
+              JsonNotAllowedResponse = partial(JsonResponse, status=405)
+            </code></pre>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              def _send_email(to, subject, body):
+                  send_mail(subject, body, to)
+
+              email_admin = partial(_send_email, "admin@example.com")
+              email_general_it = partial(_send_email, "it@example.com")
+              email_marketing = partial(_send_email, "marketing@example.com")
+              email_sales = partial(_send_email, "sales@example.com")
+
+              # (...)
+              # In our services
+
+              if thing_is_broken():
+                   email_admin(subject="It's brokened!", body='Fix it!')
+
+              # (...)
+
+              if sales_people():
+                   email_sales(subject="sales stuff", body="business, business, business!")
+            </code></pre>
+          </section>
         </section>
 
         <!-- Currificación -->
         <section>
-					<section>
-						<h2>Currying</h2>
-						<pre><code>
+          <section>
+            <h2>Currying</h2>
+            <pre><code>
               curry: ((a × b) → c) → (a → (b → c)) = λf. λx. λy. f (x, y)
-						</code></pre>
-						<blockquote class="fragment" style="text-align: left;">
-							 The technique of transforming a function that takes multiple arguments in such a way that it can be called as a chain of functions each with a single argument.
-							<br />
-							<div style="text-align: right">
-								<small>
+            </code></pre>
+            <blockquote class="fragment" style="text-align: left;">
+               The technique of transforming a function that takes multiple arguments in such a way that it can be called as a chain of functions each with a single argument.
+              <br />
+              <div style="text-align: right">
+                <small>
                   <a href="https://en.wikipedia.org/wiki/Partial_application">Partial application</a>
-									<br />from Wikipedia
-								</small>
-							</div>
-						</blockquote>
-						<br /><br />
+                  <br />from Wikipedia
+                </small>
+              </div>
+            </blockquote>
+            <br /><br />
             <pre class="fragment"><code class="python" data-trim>
               def curry(fn):
                   def curried(*args, **kwargs):
                       return curry(partial(fn, *args, **kwargs)) if args or kwargs else fn()
                   return curried
             </code></pre>
-					</section>
-					<section>
+          </section>
+          <section>
             <pre class="fragment"><code class="python" data-trim>
               @curry
               def add(a, b, c, d, e, f, g):
@@ -1118,11 +1265,11 @@
               print(add1234321())
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-					    28
+              28
               16
             </code></pre>
-					</section>
-					<section>
+          </section>
+          <section>
             <pre class="fragment"><code class="python" data-trim>
               @curry
               def accumulator(*args):
@@ -1135,11 +1282,11 @@
               print(acc())
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-					    61
+              61
             </code></pre>
-					</section>
+          </section>
 
-					<section>
+          <section>
             <pre><code class="python" data-trim>
               currencies =  {
                   'GBP': 0.879700,
@@ -1168,98 +1315,187 @@
               100.0
               12.232000000000001
             </code></pre>
-        	</section>
+          </section>
         </section>
 
         <!-- Recursivida  -->
         <section>
+          <section>
+            <h2>TCO recursion</h2>
+            <br />
+            <big class="fragment">Nope</big>
+            <br />
+            <blockquote class="fragment" style="text-align: left;">
+              I recently posted an entry in my Python History blog on the origins of Python's functional features. A side remark about not supporting tail recursion elimination (TRE) immediately sparked several comments about what a pity it is that Python doesn't do this, including links to recent blog entries by others trying to "prove" that TRE can be added to Python easily. So let me defend my position (which is that I don't want TRE in the language). If you want a short answer, it's simply unpythonic. Here's the long answer: (...)
+              <br />
+              <div style="text-align: right">
+                <small>
+                  <a href="https://neopythonic.blogspot.com.es/2009/04/tail-recursion-elimination.html">Tail Recursion elimination</a>
+                  <br />Posted by Guido van Rossum on April 22, 2009
+                </small>
+              </div>
+            </blockquote>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              import sys
+              sys.getrecursionlimit()
+            </code></pre>
+            <pre><code class="python" data-trim>
+              3000
+            </code></pre>
+
+            <pre class="fragment"><code class="python" data-trim>
+              def fib(n, sum):
+                  return sum if not n else fib(n-1, sum+n)
+
+              fib(3500, 0)
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              &#x3C;ipython-input-117-6cb630841faa&#x3E; in fib(n, sum)
+                         1 def fib(n, sum):
+              ----&#x3E; 2     return sum if not n else fib(n-1, sum+n)
+                         3
+                         4 fib(3500, 0)
+
+              RecursionError: maximum recursion depth exceeded
+            </code></pre>
+          </section>
+        </section>
+        <section>
         	<section>
-						<h2>TCO recursion</h2>
+						<h2>Python & FP</h2>
+						<div class="fragment">
+							<h4>We have...</h4>
+							<ul>
+								<li>Functions as first-class citizens</li>
+								<li>lambda (poor :-()</li>
+								<li>Standard library: map/filter/reduce, itertools, functools, operator, collections</li>
+								<li>Iterators/Generators can be used for lazy-evaluation</li>
+							</ul>
+						</div>
 						<br />
-						<big>Nope</big>
-						<br />
-						<blockquote class="fragment" style="text-align: left;">
-							I recently posted an entry in my Python History blog on the origins of Python's functional features. A side remark about not supporting tail recursion elimination (TRE) immediately sparked several comments about what a pity it is that Python doesn't do this, including links to recent blog entries by others trying to "prove" that TRE can be added to Python easily. So let me defend my position (which is that I don't want TRE in the language). If you want a short answer, it's simply unpythonic. Here's the long answer: (...)
-							<br />
-							<div style="text-align: right">
-								<small>
-									<a href="https://neopythonic.blogspot.com.es/2009/04/tail-recursion-elimination.html">Tail Recursion elimination</a>
-									<br />Posted by Guido van Rossum on April 22, 2009
-								</small>
-							</div>
-						</blockquote>
+						<div class="fragment">
+							<h4>We don't have...</h4>
+							<ul>
+								<li>No multiple sentences in lambdas</li>
+								<li>No good/clear function composition</li>
+								<li>Not full lazy-evaluation</li>
+								<li>No pattern matching syntax</li>
+								<li>No optimization for tail recursion</li>
+								<li>Imperative errors handling based on exceptions</li>
+							</ul>
+						</div>
 					</section>
 					<section>
-						<pre><code class="python" data-trim>
-							import sys
-							sys.getrecursionlimit()
-						</code></pre>
-						<pre><code class="python" data-trim>
-							3000
-						</code></pre>
-
-						<pre class="fragment"><code class="python" data-trim>
-							def fib(n, sum):
-									return sum if not n else fib(n-1, sum+n)
-
-							fib(3500, 0)
-						</code></pre>
-						<pre class="fragment"><code class="python" data-trim>
-							&#x3C;ipython-input-117-6cb630841faa&#x3E; in fib(n, sum)
-												 1 def fib(n, sum):
-							----&#x3E; 2     return sum if not n else fib(n-1, sum+n)
-												 3
-												 4 fib(3500, 0)
-
-							RecursionError: maximum recursion depth exceeded
-						</code></pre>
+						<h2>What about community libs?</h2>
+						<ul>
+							<li><strong>General</strong>: cytoolz, funcy, fn.py, hask, Effect, Pydash, Underscore.py, pyramda, PyMonad, pyMonet...</li>
+							<li><strong>Immutable / persistent data structures</strong>: Pyrsistent, Funktown...</li>
+							<li><strong>Specialized</strong>: Transducers, Tranducers-Python, RxPy...</li>
+						</ul>
+						<p>More resources at <a href="https://github.com/sfermigier/awesome-functional-python#libraries">Awesome Functional Python.</a></p>
 					</section>
-				</section>
+					<section>
+						<h2>Recomendations</h2>
+						<ul>
+							<li>Think in functional, embraces declarative programming.</li>
+							<li>Start using everything shown in this talk: iterators/generators, itertools, functools, collections, operator, decorators...</li>
+							<li>Global variables are evil, minimize its use</li>
+							<li>Make more pure functions, easier to test and more reusable</li>
+							<li>Less classes, classes ofuscate function calls. So make MORE FUNCTIONS.<br /><small><a href="https://www.youtube.com/watch?v=o9pEzgHorH0">Stop Writing Classes</a> at PyCon US '12 by Jack Diederich)</small></li>
+						</ul>
+						<p class="fragment">...and</p>
+						<div class="fragment">
+							<p>Follow the Zen of Python (<a href="https://www.python.org/dev/peps/pep-0020/">PEP 20</a>)</p>
+							<pre><code class="python" data-trim>
+								import this
+							</code></pre>
+						</div>
+					</section>
+        </section>
 
-        <!-- Bibliography -->
+				<section>
+        	<section>
+						<h1>Any question?</h1>
+					</section>
+        	<section>
+						<h1>Thanks</h1>
+					</section>
+        </section>
+
+        <!-- Resources -->
         <section>
-          <h2>Bibliography</h2>
+          <h2>Resources</h2>
           <ul style="font-size: .7em;">
-            <li><a href="https://docs.python.org/3/glossary.html">[Doc]</a>Python Glossary</li>
-            <li><a href="https://docs.python.org/dev/howto/functional.html">[Doc}</a>Functional Programming HOWTO</li>
-
-            <li><a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">[Video Talk}</a>Kung Fu at Dawn with Itertools (Victor Terrón) [Vídeo]</li>
-            <li><a href="https://github.com/vterron/EuroPython-2016">[Doc Talk}</a>Kung Fu at Dawn with Itertools (Victor Terrón) [Repo]</li>
-            <li><a href="http://www.dabeaz.com/generators/">[Doc Talk}</a>Generator Tricks for Systems Programmers (David M. Beazley)</li>
-            <li><a href="https://www.python.org/3.6/peps/pep-0288/">[Doc}</a>PEP 288 -- Generators Attributes and Exceptions</li>
-            <li><a href="https://www.python.org/3.6/peps/pep-0325/">[Doc}</a>PEP 325 -- (Resource-Release Support for Generators</li>
-            <li><a href="https://www.python.org/3.6/peps/pep-0342/">[Doc}</a>PEP 342 -- Coroutines via Enhanced Generators</li>
-            <li><a href="https://www.python.org/3.6/peps/pep-0380/">[Doc}</a>PEP 380 -- Syntax for Delegating to a Subgenerator</li>
-            <li><a href="https://docs.python.org/3.6/library/itertools.html">[Doc]</a>itertools — Functions creating iterators for efficient looping</li>
-						<li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do/231855#231855">[Doc]</a>Understand what yield does (by e-satis)</li>
-            <li><a href="https://docs.python.org/3.6/howto/sorting.html#sortinghowto">[Doc]</a>Sorting HOW TO</li>
-            <li><a href="https://docs.python.org/3.6/library/functools.html">[Doc]</a>functools — Higher-order functions and operations on callable objects</li>
-            <li><a href="https://docs.python.org/3.6/library/collections.html#module-collections">[Doc]</a>collections — Container datatypes</li>
-            <li><a href="https://docs.python.org/3.6/library/operator.html?highlight=operator">[Doc]</a>operator — Standard operators as functions</li>
-            <li><a href="https://gist.github.com/DmitrySoshnikov/700292">[Gist]</a>Understanding Python's closures (by DmitrySoshnikov)</li>
-            <li><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">[Doc]</a>Decorator Basics (by e-satis)</li>
-            <li><a href="">[]</a></li>
-            <li><a href="">[]</a></li>
+            <li><a href="https://docs.python.org/3/glossary.html">[Doc]</a>
+                Python Glossary</li>
+            <li><a href="https://docs.python.org/dev/howto/functional.html">[Doc}</a>
+                Functional Programming HOWTO</li>
+            <li><a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">[Video Talk}</a>
+                Kung Fu at Dawn with Itertools (Victor Terrón) [Vídeo]</li>
+            <li><a href="https://github.com/vterron/EuroPython-2016">[Doc Talk}</a>
+                Kung Fu at Dawn with Itertools (Victor Terrón) [Repo]</li>
+            <li><a href="http://www.dabeaz.com/generators/">[Doc Talk}</a>
+                Generator Tricks for Systems Programmers (David M. Beazley)</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0288/">[Doc}</a>
+                PEP 288 -- Generators Attributes and Exceptions</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0325/">[Doc}</a>
+                PEP 325 -- (Resource-Release Support for Generators</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0342/">[Doc}</a>
+                PEP 342 -- Coroutines via Enhanced Generators</li>
+            <li><a href="https://www.python.org/3.6/peps/pep-0380/">[Doc}</a>
+                PEP 380 -- Syntax for Delegating to a Subgenerator</li>
+            <li><a href="https://docs.python.org/3.6/library/itertools.html">[Doc]</a>
+                itertools — Functions creating iterators for efficient looping</li>
+            <li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do/231855#231855">[Doc]</a>
+                Understand what yield does (by e-satis)</li>
+            <li><a href="https://docs.python.org/3.6/howto/sorting.html#sortinghowto">[Doc]</a>
+                Sorting HOW TO</li>
+            <li><a href="https://docs.python.org/3.6/library/functools.html">[Doc]</a>
+                functools — Higher-order functions and operations on callable objects</li>
+            <li><a href="https://docs.python.org/3.6/library/collections.html#module-collections">[Doc]</a>
+                collections — Container datatypes</li>
+            <li><a href="https://docs.python.org/3.6/library/operator.html?highlight=operator">[Doc]</a>
+                operator — Standard operators as functions</li>
+            <li><a href="https://gist.github.com/DmitrySoshnikov/700292">[Gist]</a>
+                Understanding Python's closures (by DmitrySoshnikov)</li>
+            <li><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">[Doc]</a>
+                Decorator Basics (by e-satis)</li>
+            <li><a href="http://2014.es.pycon.org/static/talks/python-funcional%20-%20Jes%C3%BAs%20Espino.pdf">[Slides]</a>
+                "Python funcional" by Jesús Espino</li>
+            <li><a href="https://www.slideshare.net/GeisonFlores/python-functional-programming">[Slides]</a>
+                "Python functional programming" by Geison Goes</li>
+            <li><a href="https://www.slideshare.net/littleq0903/functional-programming-in-python-33358806">[Slides]</a>
+                "Functional programming in Python" by Colin Su</li>
+            <li><a href="https://kachayev.github.io/talks/uapycon2012/#/13">[Slides]</a>
+                "Functional Programing With Python" by Alexey Kachayev</li>
           </ul>
         </section>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
         // Settings
-       	width: "1920",
-	      height: "1080",
-       	//width: "100%",
-	      //height: "100%",
-	      //margin: 0,
-	      //minScale: 1,
+        pdfMaxPagesPerSlide: 1,
+        // 16:9 FullHD
+         width: 1920,
+        height: 1080,
+        // 16:9
+         //width: 1280,
+        //height: 720,
+        // Full size
+         //width: "100%",
+        //height: "100%",
+        //margin: -1,
+        //minScale: 1,
         //maxScale: 1,
         // Plugin: elapsed-time-bar
         allottedTime: 40 * 60 * 1000, // 40 minutes
@@ -1278,14 +1514,14 @@
           }
         },
         // Dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/elapsed-time-bar/elapsed-time-bar.js'}
-				]
-			});
-		</script>
-	</body>
+        ]
+      });
+    </script>
+  </body>
 </html>

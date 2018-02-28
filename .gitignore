@@ -12,6 +12,6 @@ bower_components/
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
-
+slides.pdf
 .ipynb_checkpoints/
 slides-python-func-101-t3chfest2018.slides.html
