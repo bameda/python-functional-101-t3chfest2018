@@ -13,8 +13,8 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
-    <link rel="stylesheet" href="lib/css/dracula.min.css">
-    <!--<link rel="stylesheet" href="lib/css/sunburst.min.css">-->
+    <!--<link rel="stylesheet" href="lib/css/dracula.min.css">-->
+    <link rel="stylesheet" href="lib/css/sunburst.min.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -109,9 +109,9 @@
         <section>
           <!--
           <section>
-						<h3>Learning Curves (for different programming languages)</h3>
-						<small><a href="https://news.ycombinator.com/item?id=8802454">from HackerNews</a> published on Dec 27 2014</small>
-						<br />
+            <h3>Learning Curves (for different programming languages)</h3>
+            <small><a href="https://news.ycombinator.com/item?id=8802454">from HackerNews</a> published on Dec 27 2014</small>
+            <br />
             <img src="img/intro/java.png"
                  style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
           </section>
@@ -140,19 +140,19 @@
                  style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
           </section>
           -->
-					<section>
-						<h2>¿What is funcional programming?</h2>
-							<blockquote style="text-align: left;">
-								In computer science, functional programming is a programming paradigma style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. <strong>It is a declarative programming paradigm</strong>, which means programming is done with expressions or declarations instead of statements. (...) can make it <strong>much easier to understand and predict the behavior of a program</strong>, which is one of the key motivations for the development of functional programming.
-								<br /><br />
-								<div style="text-align: right">
-									<small>
-										<a href="https://en.wikipedia.org/wiki/Functional_programming">Functional programming</a>
-										<br />from Wikipedia
-									</small>
-								</div>
-							</blockquote>
-					</section>
+          <section>
+            <h2>¿What is funcional programming?</h2>
+              <blockquote style="text-align: left;">
+                In computer science, functional programming is a programming paradigma style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. <strong>It is a declarative programming paradigm</strong>, which means programming is done with expressions or declarations instead of statements. (...) can make it <strong>much easier to understand and predict the behavior of a program</strong>, which is one of the key motivations for the development of functional programming.
+                <br /><br />
+                <div style="text-align: right">
+                  <small>
+                    <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional programming</a>
+                    <br />from Wikipedia
+                  </small>
+                </div>
+              </blockquote>
+          </section>
           <section>
             <h2>Imperative vs Declarative (Functional)</h2>
             <h3>(HOW vs WHAT?)</h3>
@@ -205,33 +205,33 @@
           </section>
           <section>
             <h2>What FP means?</h2>
-						<br />
-						<ul class="fragment">
-							<li><strong>No mutable data</strong>, and no (uncontrolled) side effect</li>
-  						<li><strong>No</strong> (implicit/hidden) <strong>state</strong>, FP do not eliminate state, it just make it visible and explicit (at least when programmers want it to be)</li>
-							<li><strong>Function as ﬁrst-class citizen</strong>, like strings or numbers, and you can operate with them (higher order func, composition...)</li>
-							<li><strong>Functions are pure</strong> functions in the mathematical sense: same output for the same inputs</li>
-							<li><strong>Lazy evaluation</strong></li>
-							<li><strong>Recursion (with TCO)</strong></li>
-							<li><strong>Iterators</strong>, <strong>sequences</strong>, <strong>pattern matching</strong>, <strong>monads</strong>....</li>
-						</ul>
+            <br />
+            <ul class="fragment">
+              <li><strong>No mutable data</strong>, and no (uncontrolled) side effect</li>
+              <li><strong>No</strong> (implicit/hidden) <strong>state</strong>, FP do not eliminate state, it just make it visible and explicit (at least when programmers want it to be)</li>
+              <li><strong>Function as ﬁrst-class citizen</strong>, like strings or numbers, and you can operate with them (higher order func, composition...)</li>
+              <li><strong>Functions are pure</strong> functions in the mathematical sense: same output for the same inputs</li>
+              <li><strong>Lazy evaluation</strong></li>
+              <li><strong>Recursion (with TCO)</strong></li>
+              <li><strong>Iterators</strong>, <strong>sequences</strong>, <strong>pattern matching</strong>, <strong>monads</strong>....</li>
+            </ul>
           </section>
           <section>
-						<h2>Why do we want to be functional?</h2>
-						<ul class="fragment">
-							<li><strong>Cleaner code</strong>: we don't have to follow the change of state to comprehend what a function, a, method, a class, a whole project works.</li>
-							<li><strong>Referential transparency</strong>: Expressions can be replaced by its values. If we call a function with the same parameters, we know for sure the output will be the same.<ul>
-              	<li><strong>Memoization</strong>: cache</li>
-								<li><strong>Parallelization</strong>: functions calls are independent, no sync needed =&gt; concurrence simpler)</li>
-								<li><strong>Better modularization</strong>: easy to plug/unpplug</li>
-								<li><strong>Easy of test</strong></li>
-								<li><strong>Ease of debugging</strong></li>
-							</ul></li>
-						</ul>
+            <h2>Why do we want to be functional?</h2>
+            <ul class="fragment">
+              <li><strong>Cleaner code</strong>: we don't have to follow the change of state to comprehend what a function, a, method, a class, a whole project works.</li>
+              <li><strong>Referential transparency</strong>: Expressions can be replaced by its values. If we call a function with the same parameters, we know for sure the output will be the same.<ul>
+                <li><strong>Memoization</strong>: cache</li>
+                <li><strong>Parallelization</strong>: functions calls are independent, no sync needed =&gt; concurrence simpler)</li>
+                <li><strong>Better modularization</strong>: easy to plug/unpplug</li>
+                <li><strong>Easy of test</strong></li>
+                <li><strong>Ease of debugging</strong></li>
+              </ul></li>
+            </ul>
           </section>
           <section>
-						<h4>Python is a multi paradigm programming language so</h4>
-						<h2>What does Python offer<br />to make our code more functional?</h2>
+            <h4>Python is a multi paradigm programming language so</h4>
+            <h2>What does Python offer<br />to make our code more functional?</h2>
           </section>
         </section>
 
@@ -1245,7 +1245,7 @@
             </code></pre>
           </section>
           <section>
-            <pre class="fragment"><code class="python" data-trim>
+            <pre><code class="python" data-trim>
               @curry
               def add(a, b, c, d, e, f, g):
                   return a + b + c + d + e + f + g
@@ -1264,7 +1264,7 @@
             </code></pre>
           </section>
           <section>
-            <pre class="fragment"><code class="python" data-trim>
+            <pre><code class="python" data-trim>
               @curry
               def accumulator(*args):
                   return sum(args)
@@ -1371,63 +1371,61 @@
           </section>
         </section>
         <section>
-        	<section>
-						<h2>Python & FP</h2>
-						<div class="fragment">
-							<h4>We have...</h4>
-							<ul>
-								<li>Functions as first-class citizens</li>
-								<li>lambda (poor :-()</li>
-								<li>Standard library: map/filter/reduce, itertools, functools, operator, collections, closures, decorators</li>
-								<li>Iterators/Generators can be used for lazy-evaluation</li>
-							</ul>
-						</div>
-						<br />
-						<div class="fragment">
-							<h4>We don't have...</h4>
-							<ul>
-								<li>No multiple sentences in lambdas</li>
-								<li>Not full lazy-evaluation</li>
-								<li>No pattern matching syntax</li>
-								<li>No optimization for tail recursion</li>
-								<li>Imperative errors handling based on exceptions</li>
-							</ul>
-						</div>
-					</section>
-					<section>
-						<h2>What about community libs?</h2>
-						<ul>
-							<li><strong>General</strong>: cytoolz, funcy, fn.py, hask, Effect, Pydash, Underscore.py, pyramda, PyMonad, pyMonet...</li>
-							<li><strong>Immutable / persistent data structures</strong>: Pyrsistent, Funktown...</li>
-							<li><strong>Specialized</strong>: Transducers, Tranducers-Python, RxPy...</li>
-						</ul>
-						<p>More resources at <a href="https://github.com/sfermigier/awesome-functional-python#libraries">Awesome Functional Python.</a></p>
-					</section>
-					<section>
-						<h2>Recomendations</h2>
-						<ul>
-							<li>Think in functional, embraces declarative programming.</li>
-							<li>Start using everything shown in this talk: iterators/generators, itertools, functools, collections, operator, decorators...</li>
-							<li>Global variables are evil, minimize its use</li>
-							<li>Make more pure functions, easier to test and more reusable</li>
-							<li>Less classes, classes ofuscate function calls. So make MORE FUNCTIONS.<br /><a href="https://www.youtube.com/watch?v=o9pEzgHorH0">Stop Writing Classes</a> at PyCon US '12 by Jack Diederich)</li>
-						</ul>
-						<p class="fragment">...and</p>
-						<div class="fragment">
-							<p>Follow the Zen of Python (<a href="https://www.python.org/dev/peps/pep-0020/">PEP 20</a>)</p>
-							<pre><code class="python" data-trim>
-								import this
-							</code></pre>
-						</div>
-					</section>
+          <section>
+            <h2>Python & FP</h2>
+            <div class="fragment">
+              <h4>We have...</h4>
+              <ul>
+                <li>Functions as first-class citizens</li>
+                <li>lambda (poor :-()</li>
+                <li>Standard library: map/filter/reduce, itertools, functools, operator, collections, closures, decorators</li>
+                <li>Iterators/Generators can be used for lazy-evaluation</li>
+              </ul>
+            </div>
+            <br />
+            <div class="fragment">
+              <h4>We don't have...</h4>
+              <ul>
+                <li>No multiple sentences in lambdas</li>
+                <li>Not full lazy-evaluation</li>
+                <li>No pattern matching syntax</li>
+                <li>No optimization for tail recursion</li>
+                <li>Imperative errors handling based on exceptions</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>What about community libs?</h2>
+            <ul>
+              <li><strong>General</strong>: cytoolz, funcy, fn.py, hask, Effect, Pydash, Underscore.py, pyramda, PyMonad, pyMonet...</li>
+              <li><strong>Immutable / persistent data structures</strong>: Pyrsistent, Funktown...</li>
+              <li><strong>Specialized</strong>: Transducers, Tranducers-Python, RxPy...</li>
+            </ul>
+            <p>More resources at <a href="https://github.com/sfermigier/awesome-functional-python#libraries">Awesome Functional Python.</a></p>
+          </section>
+          <section>
+            <h2>Recomendations</h2>
+            <ul>
+              <li>Think in functional, embraces declarative programming.</li>
+              <li>Start using everything shown in this talk: iterators/generators, itertools, functools, collections, operator, decorators...</li>
+              <li>Global variables are evil, minimize its use</li>
+              <li>Make more pure functions, easier to test and more reusable</li>
+              <li>Less classes, classes ofuscate function calls. So make MORE FUNCTIONS.<br /><a href="https://www.youtube.com/watch?v=o9pEzgHorH0">Stop Writing Classes</a> at PyCon US '12 by Jack Diederich)</li>
+            </ul>
+            <p class="fragment">...and</p>
+            <div class="fragment">
+              <p>Follow the Zen of Python (<a href="https://www.python.org/dev/peps/pep-0020/">PEP 20</a>)</p>
+              <pre><code class="python" data-trim>
+                import this
+              </code></pre>
+            </div>
+          </section>
         </section>
 
-				<section>
-        	<section>
-						<h1>Any question?</h1>
-					</section>
-        	<section data-background="img/Thanks/thanks.gif" >
-					</section>
+        <section>
+          <section>
+            <h1>Any question?</h1>
+          </section>
         </section>
 
         <!-- Resources -->
@@ -1483,6 +1481,8 @@
             <li><a href="https://kachayev.github.io/talks/uapycon2012/#/13">[Slides]</a>
                 Functional Programing With Python by Alexey Kachayev</li>
           </ul>
+        </section>
+        <section data-background="img/Thanks/thanks.gif" >
         </section>
       </div>
     </div>
