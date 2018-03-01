@@ -38,9 +38,9 @@
           <br /><br /><br /><br /><br /><br />
           <div style="display: flex; align-items: center; flex-direction: row; position:absolute; bottom: 0; right: 3em;">
             <img src="img/cover/t3chfest.svg"
-                 style="border: 0; background: none; height: 2rem; margin-right: 1.5rem">
+                 style="border: 0; background: none; height: 2rem; margin-right: 1.5rem" />
             <img src="img/cover/t3chfy.svg"
-                 style="border: 0; background: none; height: 6rem;">
+                 style="border: 0; background: none; height: 6rem;" />
           </div>
         </section>
 
@@ -63,6 +63,12 @@
             <a href="https://github.com/bameda">bameda</a> on GitHub
             <br />
             <a href="https://twitter.com/bameda">@bameda</a> on Twitter
+          </p>
+          <br />
+          <br />
+          <br />
+          <p>
+            Slides:<br /><a href="https://bameda.github.io/python-functional-101-t3chfest2018/index.html">https://bameda.github.io/python-functional-101-t3chfest2018/index.html</a>
           </p>
         </section>
 
@@ -100,21 +106,21 @@
           </ul>
         </section>
 
-        <!-- -->
         <section>
+          <!--
           <section>
 						<h3>Learning Curves (for different programming languages)</h3>
 						<small><a href="https://news.ycombinator.com/item?id=8802454">from HackerNews</a> published on Dec 27 2014</small>
 						<br />
-            <img src="img/intro/php.png"
-                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
-          </section>
-          <section>
             <img src="img/intro/java.png"
                  style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
           </section>
           <section>
             <img src="img/intro/cpp.png"
+                 style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
+          </section>
+          <section>
+            <img src="img/intro/php.png"
                  style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
           </section>
           <section>
@@ -133,6 +139,7 @@
             <img src="img/intro/haskell.png"
                  style="border: 0; background: none; height: 40rem; vertical-align: middle; box-shadow: none; padding-left: 2rem" />
           </section>
+          -->
 					<section>
 						<h2>¿What is funcional programming?</h2>
 							<blockquote style="text-align: left;">
@@ -201,7 +208,7 @@
 						<br />
 						<ul class="fragment">
 							<li><strong>No mutable data</strong>, and no (uncontrolled) side effect</li>
-  						<li><strong>No</strong> (implicit/hidden) <strong>state</strong> FP do not eliminate state, it just make it visible and explicit (at least when programmers want it to be)</li>
+  						<li><strong>No</strong> (implicit/hidden) <strong>state</strong>, FP do not eliminate state, it just make it visible and explicit (at least when programmers want it to be)</li>
 							<li><strong>Function as ﬁrst-class citizen</strong>, like strings or numbers, and you can operate with them (higher order func, composition...)</li>
 							<li><strong>Functions are pure</strong> functions in the mathematical sense: same output for the same inputs</li>
 							<li><strong>Lazy evaluation</strong></li>
@@ -414,14 +421,6 @@
           <section>
             <p>Iterator is good for one pass over the set of values.</p>
             <pre class="fragment"><code class="python" data-trim>
-              class zrange:
-                  def __init__(self, n):
-                      self.n = n
-
-                  def __iter__(self):
-                      return yrange(self.n)
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
               y = yrange(5)
               print(tuple(y))
               print(tuple(y))
@@ -429,15 +428,6 @@
             <pre class="fragment"><code class="python" data-trim>
               (0, 1, 2, 3, 4)
               ()
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-              z = zrange(5)
-              print(tuple(z))
-              print(tuple(z))
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-              (0, 1, 2, 3, 4)
-              (0, 1, 2, 3, 4)
             </code></pre>
           </section>
           <section>
@@ -465,9 +455,9 @@
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
               &lt;generator object my_generator at 0x7ff9ec48fc50&gt;
-              a
-              b
-              c
+              1
+              2
+              3
               ---------------------------------------------------------------------------
               StopIteration                             Traceback (most recent call last)
               &lt;ipython-input-55-567ce73dea18&gt; in &lt;module&gt;()
@@ -563,54 +553,13 @@
               <li>A generator expression is like a list comprenhension but with the benefits of the generators.</li>
             </ul>
             <br /><br />
-            <small class="fragment">
+            <p class="fragment">
               If you need mutch more, read <a href="http://www.dabeaz.com/generators/">"Generator Tricks for Systems Programmers"</a> by David M. Beazley
               <br/ >and some Python Enhancement Proposals <a href="https://www.python.org/dev/peps/pep-0288/" title="PEP 288 -- Generators Attributes and Exceptions">PEP 288</a>
               , <a href="https://www.python.org/dev/peps/pep-0325/" title="PEP 325 -- Resource-Release Support for Generators">PEP 325</a>
               , <a href="https://www.python.org/dev/peps/pep-0342/" title="PEP 342 -- Coroutines via Enhanced Generators">PEP 342</a>
               and <a href="https://www.python.org/dev/peps/pep-0380/" title="PEP 380 -- Syntax for Delegating to a Subgenerator">PEP 380</a>.
-            </small>
-          </section>
-        </section>
-
-        <!-- Lambda Functions -->
-        <section>
-          <section>
-            <h2>Lambda functions</h2>
-            <blockquote style="text-align: left;">
-              <strong>lambda:</strong> An anonymous inline function consisting of a <strong>single expression</strong> which is evaluated when the function is called. The syntax to create a lambda function is <code>lambda [arguments]: expression</code>
-            </blockquote>
-            <blockquote class="fragment" style="text-align: left;">
-              <strong>expression: </strong> A piece of syntax which can be evaluated to some value. In other words, an expression is an accumulation of expression elements like literals, names, attribute access, operators or function calls which all return a value.
-            </blockquote>
-            </br />
-            <pre class="fragment"><code class="python" data-trim>
-              sum_numbers = lambda x, y: x+y
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-              print(sum_numbers)
-              &lt;function &lt;lambda&gt; at 0x7f0aef3d9ea0&gt;
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-              sum_numbers(1, 4)
-              5
-            </code></pre>
-          </section>
-          <section>
-            <pre><code class="python" data-trim>
-              even_or_odd = lambda x: "even" if x % 2 == 0 else "odd"
-
-              print(f"1 is {even_or_odd(1)}")
-              print(f"4 is {even_or_odd(4)}")
-              print(f"22 is {even_or_odd(22)}")
-              print(f"1479 is {even_or_odd(1479)}")
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-              1 is odd
-              4 is even
-              22 is even
-              1479 is odd
-            </code></pre>
+            </p>
           </section>
         </section>
 
@@ -738,6 +687,7 @@
             </code></pre>
           </section>
           <section>
+            <!--
             <p>...but in the real life?</p>
             <pre class="fragment"><code class="python" data-trim>
               import collections, itertools
@@ -759,10 +709,54 @@
                Coord(x=12, y=3), Coord(x=12, y=5),
                Coord(x=13, y=3), Coord(x=13, y=4), Coord(x=13, y=5))
             </code></pre>
-            <p class="fragment">
-              To know more about irtertools see "Kung Fu at Dawn with Itertools" by Víctor Terrón (@pyctor)
-              <br ><a href="https://www.youtube.com/watch?v=iCrOGS1QlB8">Video EN</a> / <a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">Video ES</a> / <a href="https://github.com/vterron/EuroPython-2016">Repo</a> [CC BY-SA 2.0]
+            -->
+            <p>
+              To know more about irtertools see<br /><br /><strong>Kung Fu at Dawn with Itertools</strong><br />by Víctor Terrón (@pyctor)<br /> at EuroPython 2016
+              <br ><br /><a href="https://www.youtube.com/watch?v=iCrOGS1QlB8">Video EN</a> / <a href="https://www.youtube.com/watch?v=4ZIxcdREYVc">Video ES</a> / <a href="https://github.com/vterron/EuroPython-2016">Repo</a> [CC BY-SA 2.0]
             </p>
+          </section>
+        </section>
+
+        <!-- Lambda Functions -->
+        <section>
+          <section>
+            <h2>Lambda functions</h2>
+            <blockquote style="text-align: left;">
+              <strong>lambda:</strong> An anonymous inline function consisting of a <strong>single expression</strong> which is evaluated when the function is called. The syntax to create a lambda function is <code>lambda [arguments]: expression</code>
+            </blockquote>
+            <blockquote class="fragment" style="text-align: left;">
+              <strong>expression: </strong> A piece of syntax which can be evaluated to some value. In other words, an expression is an accumulation of expression elements like literals, names, attribute access, operators or function calls which all return a value.
+            </blockquote>
+            </br />
+            <div class="fragment">
+              <pre><code class="python" data-trim>
+                sum_numbers = lambda x, y: x+y
+              </code></pre>
+              <pre><code class="python" data-trim>
+                print(sum_numbers)
+                &lt;function &lt;lambda&gt; at 0x7f0aef3d9ea0&gt;
+              </code></pre>
+              <pre><code class="python" data-trim>
+                sum_numbers(1, 4)
+                5
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <pre><code class="python" data-trim>
+              even_or_odd = lambda x: "even" if x % 2 == 0 else "odd"
+
+              print(f"1 is {even_or_odd(1)}")
+              print(f"4 is {even_or_odd(4)}")
+              print(f"22 is {even_or_odd(22)}")
+              print(f"1479 is {even_or_odd(1479)}")
+            </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              1 is odd
+              4 is even
+              22 is even
+              1479 is odd
+            </code></pre>
           </section>
         </section>
 
@@ -918,25 +912,25 @@
               import functools
 
               @functools.lru_cache()
-              def get_heavy_query(param):
-                  print(f"Accessing to the db (param={param}")
+              def get_heavy_func(param):
+                  print(f"Multiply (param={param} by 3")
                   return param * 3
 
-              print(get_heavy_query(1))
-              print(get_heavy_query(2))
-              print(get_heavy_query(1))
-              print(get_heavy_query(2))
-              print(get_heavy_query(3))
             </code></pre>
             <pre class="fragment"><code class="python" data-trim>
-              Accessing to the db (param=1
+              print(get_heavy_func(1))
+              Multiply 1 by 3
               3
-              Accessing to the db (param=2
+
+              print(get_heavy_func(2))
+              Multiply 2 by 3
               6
+
+              print(get_heavy_func(1))
               3
+
+              print(get_heavy_func(2))
               6
-              Accessing to the db (param=3
-              9
             </code></pre>
           </section>
         </section>
@@ -1321,7 +1315,12 @@
         <!-- Recursivida  -->
         <section>
           <section>
-            <h2>TCO recursion</h2>
+            <h2>Recursion<h2>
+              <img src="img/recursion/google.png"
+                   style="border: 0; background: none; height: 46rem; vertical-align: middle; box-shadow: none;" />
+          </section>
+          <section>
+            <h3>Does Python have TCO?</h3>
             <br />
             <big class="fragment">Nope</big>
             <br />
@@ -1360,6 +1359,15 @@
 
               RecursionError: maximum recursion depth exceeded
             </code></pre>
+            <pre class="fragment"><code class="python" data-trim>
+              def fib(n):
+                  a, b = 0, 1
+                  for i in range(n):
+                      yield a
+                      a, b = b, a + b
+
+              tuple(fib(3500))
+            </code></pre>
           </section>
         </section>
         <section>
@@ -1370,7 +1378,7 @@
 							<ul>
 								<li>Functions as first-class citizens</li>
 								<li>lambda (poor :-()</li>
-								<li>Standard library: map/filter/reduce, itertools, functools, operator, collections</li>
+								<li>Standard library: map/filter/reduce, itertools, functools, operator, collections, closures, decorators</li>
 								<li>Iterators/Generators can be used for lazy-evaluation</li>
 							</ul>
 						</div>
@@ -1379,7 +1387,6 @@
 							<h4>We don't have...</h4>
 							<ul>
 								<li>No multiple sentences in lambdas</li>
-								<li>No good/clear function composition</li>
 								<li>Not full lazy-evaluation</li>
 								<li>No pattern matching syntax</li>
 								<li>No optimization for tail recursion</li>
@@ -1403,7 +1410,7 @@
 							<li>Start using everything shown in this talk: iterators/generators, itertools, functools, collections, operator, decorators...</li>
 							<li>Global variables are evil, minimize its use</li>
 							<li>Make more pure functions, easier to test and more reusable</li>
-							<li>Less classes, classes ofuscate function calls. So make MORE FUNCTIONS.<br /><small><a href="https://www.youtube.com/watch?v=o9pEzgHorH0">Stop Writing Classes</a> at PyCon US '12 by Jack Diederich)</small></li>
+							<li>Less classes, classes ofuscate function calls. So make MORE FUNCTIONS.<br /><a href="https://www.youtube.com/watch?v=o9pEzgHorH0">Stop Writing Classes</a> at PyCon US '12 by Jack Diederich)</li>
 						</ul>
 						<p class="fragment">...and</p>
 						<div class="fragment">
@@ -1419,8 +1426,7 @@
         	<section>
 						<h1>Any question?</h1>
 					</section>
-        	<section>
-						<h1>Thanks</h1>
+        	<section data-background="img/Thanks/thanks.gif" >
 					</section>
         </section>
 
@@ -1446,6 +1452,8 @@
                 PEP 342 -- Coroutines via Enhanced Generators</li>
             <li><a href="https://www.python.org/3.6/peps/pep-0380/">[Doc}</a>
                 PEP 380 -- Syntax for Delegating to a Subgenerator</li>
+            <li><a href="https://www.python.org/dev/peps/pep-0020/">[Doc]</a>
+                PEP 20 -- ZZen of Python</li>
             <li><a href="https://docs.python.org/3.6/library/itertools.html">[Doc]</a>
                 itertools — Functions creating iterators for efficient looping</li>
             <li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do/231855#231855">[Doc]</a>
@@ -1458,18 +1466,22 @@
                 collections — Container datatypes</li>
             <li><a href="https://docs.python.org/3.6/library/operator.html?highlight=operator">[Doc]</a>
                 operator — Standard operators as functions</li>
+            <li><a href="https://github.com/sfermigier/awesome-functional-python#libraries">[Resource]</a>
+                Awesome Functional Python</li>
             <li><a href="https://gist.github.com/DmitrySoshnikov/700292">[Gist]</a>
                 Understanding Python's closures (by DmitrySoshnikov)</li>
             <li><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">[Doc]</a>
                 Decorator Basics (by e-satis)</li>
+            <li><a href="https://www.youtube.com/watch?v=o9pEzgHorH0">[Vide]</a>
+                Stop Writing Classes by Jack Diederich (PyCon US '12
             <li><a href="http://2014.es.pycon.org/static/talks/python-funcional%20-%20Jes%C3%BAs%20Espino.pdf">[Slides]</a>
-                "Python funcional" by Jesús Espino</li>
+                Python funcional" by Jesús Espino</li>
             <li><a href="https://www.slideshare.net/GeisonFlores/python-functional-programming">[Slides]</a>
-                "Python functional programming" by Geison Goes</li>
+                Python functional programming by Geison Goes</li>
             <li><a href="https://www.slideshare.net/littleq0903/functional-programming-in-python-33358806">[Slides]</a>
-                "Functional programming in Python" by Colin Su</li>
+                Functional programming in Python by Colin Su</li>
             <li><a href="https://kachayev.github.io/talks/uapycon2012/#/13">[Slides]</a>
-                "Functional Programing With Python" by Alexey Kachayev</li>
+                Functional Programing With Python by Alexey Kachayev</li>
           </ul>
         </section>
       </div>
