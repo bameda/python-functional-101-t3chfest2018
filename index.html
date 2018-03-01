@@ -316,6 +316,9 @@
           </section>
           <section>
             <blockquote style="text-align: left;">
+            <strong>__iter__:</strong>This method is called when an iterator is required for a container. This method should return a new iterator object that can iterate over all the objects in the container. For mappings, it should iterate over the keys of the container.
+            </blockquote>
+            <blockquote class="fragment" style="text-align: left;">
               <strong>iterator:</strong> An object representing a stream of data. Repeated calls to the iterator’s <code>__next__()</code> method (or passing it to the built-in function <code>next()</code>) return successive items in the stream. When no more data are available a <code>StopIteration</code> exception is raised instead. At this point, the iterator object is exhausted and any further calls to its <code>__next__()</code> method just raise <code>StopIteration</code> again. Iterators are required to have an <code>__iter__()</code> method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted.
             </blockquote>
           </section>
