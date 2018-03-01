@@ -284,9 +284,6 @@
             <blockquote style="text-align: left;">
               <strong>iterable:</strong> An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict, file objects, and objects of any classes you define with an <code>__iter__()</code> method or <code>__getitem__</code> (...) When an iterable object is passed as an argument to the built-in function <code>iter()</code>, it returns an iterator for the object. This iterator is good for one pass over the set of values.
             </blockquote>
-            <blockquote class="fragment" style="text-align: left;">
-            <strong>__iter__:</strong>This method is called when an iterator is required for a container. This method should return a new iterator object that can iterate over all the objects in the container. For mappings, it should iterate over the keys of the container.
-            </blockquote>
           </section>
           <section>
             <pre><code class="python" data-trim>
