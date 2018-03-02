@@ -1,0 +1,52 @@
+/**
+ * Custom theme based on Black theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Copyright (C) 2018 David Barragán
+ */
+
+@import 'white.css';
+
+/*
+ * Colors:
+ *   #005db2   Blue
+ *   #ff9e00   Orange
+ */
+
+.reveal h1 {
+  font-size: 2.7em; }
+
+.reveal h2 {
+  font-size: 1.7em; }
+
+.reveal h3 {
+  font-size: 1.3em; }
+
+.reveal h4 {
+  font-size: 1em; }
+
+::selection {
+  color: #fff;
+  background: #ff9e00; }
+
+::-moz-selection {
+  color: #fff;
+  background: #ff9e00; }
+
+.reveal a {
+  color: #005db2; }
+
+.reveal a:hover img {
+  border-color: #005db2; }
+
+.reveal .controls {
+  color: #005db2; }
+
+.reveal .progress {
+  color: #005db2; }
+
+.reveal pre code {
+  font-size: 1.5em;
+  line-height: 1em;
+  max-height: 500px;
+}
