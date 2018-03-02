@@ -322,6 +322,7 @@
               <strong>iterator:</strong> An object representing a stream of data. Repeated calls to the iterator’s <code>__next__()</code> method (or passing it to the built-in function <code>next()</code>) return successive items in the stream. When no more data are available a <code>StopIteration</code> exception is raised instead. At this point, the iterator object is exhausted and any further calls to its <code>__next__()</code> method just raise <code>StopIteration</code> again. Iterators are required to have an <code>__iter__()</code> method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted.
             </blockquote>
           </section>
+          <!--
           <section>
             <pre><code class="python" data-trim>
               l = [1, 2, 3, 4]
@@ -349,6 +350,7 @@
               &lt;method-wrapper '__next__' of list_iterator object at 0x7ff9ec514240&gt;
             </code></pre>
           </section>
+          -->
           <section>
             <pre><code class="python" data-trim>
               class yrange:
@@ -1182,6 +1184,8 @@
           </section>
           <section>
             <pre><code class="python" data-trim>
+              from django.http  import HttpResponse
+
               JsonResponse = lambda content, *args, **kwargs: HttpResponse(
                   json.dumps(content),
                   content_type="application/json",
@@ -1197,13 +1201,12 @@
           </section>
           <section>
             <pre><code class="python" data-trim>
-              def _send_email(to, subject, body):
-                  send_mail(subject, body, to)
+              from django.core.mail import send_mail
 
-              email_admin = partial(_send_email, "admin@example.com")
-              email_general_it = partial(_send_email, "it@example.com")
-              email_marketing = partial(_send_email, "marketing@example.com")
-              email_sales = partial(_send_email, "sales@example.com")
+              email_admin = partial(send_email, email="admin@example.com")
+              email_general_it = partial(send_email, email="it@example.com")
+              email_marketing = partial(send_email, email="marketing@example.com")
+              email_sales = partial(send_email, email="sales@example.com")
 
               # (...)
               # In our services
@@ -1242,25 +1245,6 @@
                   def curried(*args, **kwargs):
                       return curry(partial(fn, *args, **kwargs)) if args or kwargs else fn()
                   return curried
-            </code></pre>
-          </section>
-          <section>
-            <pre><code class="python" data-trim>
-              @curry
-              def add(a, b, c, d, e, f, g):
-                  return a + b + c + d + e + f + g
-
-              add12 = add(1)(2)
-              add1234 = add12(3)(4)
-              add1234567 = add1234(5)(6)(7)
-              add1234321 = add1234(3)(2)(1)
-
-              print(add1234567())
-              print(add1234321())
-            </code></pre>
-            <pre class="fragment"><code class="python" data-trim>
-              28
-              16
             </code></pre>
           </section>
           <section>
